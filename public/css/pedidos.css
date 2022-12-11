@@ -1,0 +1,51 @@
+/** ---------- Estilos de los pedidos para el usuario contable --------- */
+
+#boton-buscar {
+    background-color: #5E01D8;
+    color: #FFF;
+    font-family: helvetica;
+}
+
+#boton-buscar:hover {
+    background-color: #29005F;
+}
+
+
+/** ---------- Estilos de los pedidos para el usuario mozo --------- */
+
+#boton-ver {
+    background-color: #E8C800;
+    color: #FFF;
+    font-family: arial;
+}
+
+#boton-ver:hover {
+    background-color: #CDBC2E;
+}
+
+#boton-modificar {
+    font-family: arial;
+}
+
+
+/* Colores de fondo para los estados del pedido  */
+
+.bg-amarillo {
+    background-color: #E6BC00;
+    color: #FFF;
+}
+
+.bg-naranja {
+    background-color: #D95500;
+    color: #FFF;
+}
+
+
+/* Redimensionar imágen */
+
+.imagen {
+    max-width: 250px;
+    max-height: 250px;
+    width: 210px;
+    height: 190px;
+}

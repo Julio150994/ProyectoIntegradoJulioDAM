@@ -1,0 +1,39 @@
+/** ------------- Estilos CSS para el informe de la factura PDF ---------------------  */
+
+body {
+    background-color: #4618AC;
+}
+
+.titulo {
+    color: gray;
+    text-align: center;
+}
+
+.txt-detalle {
+    color: gray;
+    text-align: left;
+}
+
+.tabla-pedidos {
+    border: 1px solid #000;
+    text-align: center;
+}
+
+.cabecera-tabla {
+    background-color: #000;
+    color: #FFF;
+}
+
+.cuerpo-tabla {
+    background-color: gray;
+    color: #FFF;
+}
+
+.imagen-pedido {
+    width: 200px !important;
+    height: 200px !important;
+}
+
+.precio-factura {
+    color: gray;
+}

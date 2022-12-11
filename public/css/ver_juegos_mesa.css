@@ -1,0 +1,73 @@
+/*--------------Para los estilos de ver el juego a comprar------------------------*/
+
+.container_compras {
+    background-color: #4618AC;
+    color: #FFF;
+}
+
+.juego_mesa {
+    height: 620px;
+}
+
+.fondo_carrito {
+    background-color: #1F065C;
+    color: #FFF;
+}
+
+.container_carrito {
+    background-color: #4618AC;
+    color: #FFF;
+    height: 200px;
+}
+
+#btnRestar {
+    background-color: #E6BC00;
+    color: #FFF;
+}
+
+#btnRestar:hover {
+    background-color: #9E8500;
+}
+
+.btnStock {
+    background-color: #FC4830;
+}
+
+#btnCarrito {
+    background-color: #220079;
+    color: #FFF;
+}
+
+#btnCarrito:hover {
+    background-color: #23004A;
+}
+
+#btnMenu {
+    background-color: #E6BC00;
+    color: #FFF;
+}
+
+#btnMenu:hover {
+    background-color: #9E8500;
+}
+
+.altura_imagen {
+    height: 495px;
+}
+
+.centrado_carrito {
+    margin-left: 17em;
+}
+
+
+/**----------- Para nuestro mensaje modal ---------- */
+
+#fondoModal {
+    background-color: #4618AC;
+    color: #FFF;
+}
+
+#bg_juego {
+    background-color: #E6BC00;
+    color: #FFF;
+}

@@ -1,0 +1,19 @@
+/* Para el registro de nuevos clientes en la tienda Landgame */
+
+.main-register {
+    background-color: #1F065C;
+    width: 100vw;
+    height: 90vh;
+}
+
+#card-header {
+    background-color: #2D097A;
+}
+
+#card-body {
+    background-color: #4618AC;
+}
+
+.text-yellow {
+    color: #F5CE1F;
+}

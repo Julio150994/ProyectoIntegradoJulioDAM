@@ -1,0 +1,103 @@
+.container_compras {
+    background-color: #4618AC;
+    color: #FFF;
+}
+
+.pago {
+    margin-top: -40px;
+}
+
+.medidas_imagen {
+    width: 280px !important;
+    height: 280px !important;
+}
+
+.imagen_empresa {
+    width: 220px !important;
+    height: 160px !important;
+}
+
+.bg-formulario {
+    background-color: #F3F3F3;
+}
+
+
+/**-------  Para el scroll de la tabla del carrito  -------------*/
+
+
+/*.table-bordered thead,
+.table-bordered tbody {
+    height: 330px;
+    overflow-y: auto;
+    width: 100%;
+}
+
+.table-bordered thead,
+.table-bordered tbody,
+.table-bordered tr,
+.table-bordered td,
+.table-bordered th {
+    display: block;
+}
+
+.table-bordered thead>tr>th,
+.table-bordered tbody>tr>td {
+    float: left;
+    border-bottom-width: 0;
+}*/
+
+
+/**-------  Para hacer nuestro botón de PayPal responsive  -------------*/
+
+
+/* Para visualizar en el móvil */
+
+@media screen and (max-width: 360px) {
+    #boton-paypal {
+        width: 100%;
+    }
+}
+
+
+/* Para visualizar en escritorio de ordenador */
+
+@media screen and (min-width: 360px) {
+    #boton-paypal {
+        width: 250px;
+    }
+}
+
+#link_paypal:hover {
+    background-color: #000;
+    border-radius: 4px;
+}
+
+
+/**--------- Funcionalidades del PayPal  ----------*/
+
+#juegosCarrito {
+    background-color: #E75B00;
+    color: #FFF;
+}
+
+#juegosCarrito:hover {
+    background-color: #B34700;
+    color: #FFF;
+}
+
+
+/** ----------- Diseño del formulario direcciones de envio  ----------------- */
+
+.container-envios {
+    background-color: #1F065C;
+    color: #FFF;
+}
+
+.bg-formulario {
+    background-color: #E6E6E6;
+}
+
+.container-tipo-coste {
+    width: 520px !important;
+    height: 700px !important;
+}

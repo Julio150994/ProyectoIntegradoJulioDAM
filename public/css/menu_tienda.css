@@ -1,0 +1,121 @@
+/*-------------Para los estilos CSS de nuestra tienda Landgame------------------*/
+
+
+/* Para nuestra página del menu */
+
+#app {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: column;
+    min-height: 110vh;
+}
+
+.navbar_menu {
+    background-color: #1F065C;
+}
+
+.buscador_menu {
+    margin-left: 3.67%;
+    margin-right: 3.65%;
+}
+
+.logo {
+    margin-left: -1.8em;
+    margin-right: 2.5em;
+}
+
+.logo_titulo {
+    font-size: 18px;
+    font-family: 'Arial';
+}
+
+#nombre_juego {
+    font-size: 16.2px;
+}
+
+#navbar_right {
+    margin-left: 2.56%;
+}
+
+.icon_register {
+    margin-left: 2.1em;
+    margin-right: 3.5em;
+}
+
+.container_juegos {
+    background-color: #4618AC;
+    color: #FFF;
+}
+
+.navbar_second {
+    margin-left: 4em;
+}
+
+
+/* Para aplicar efectos hover a los botones */
+
+#texto:hover {
+    background-color: #E6BC00;
+    border-radius: 6.5px;
+    transition: background-color .2s;
+}
+
+
+/*--------------- Donde mostramos los juegos de la base de datos y sus imágenes -------------------- */
+
+.container_juegos .titulo {
+    margin-left: 7.5%;
+}
+
+.container_juegos .compra {
+    margin-left: 6%;
+}
+
+.tarjeta_juego {
+    width: 18rem;
+}
+
+.medidas_imagen {
+    /* El !important ,al redimensionar imágenes, nos permite cuadrar bien la estructura web de las cards */
+    width: 300px !important;
+    height: 275px !important;
+}
+
+#juegos {
+    display: none;
+}
+
+#btnJuegos {
+    margin-left: 65em;
+}
+
+#btnJuegos:hover {
+    border-color: #E6BC00;
+    background-color: #1F065C;
+}
+
+
+/* Efectos hover en los textos del menú lateral y cabecera*/
+
+#lista_cliente {
+    background-color: #4618AC;
+}
+
+#link_cliente {
+    background-color: #4618AC;
+    color: #FFF;
+}
+
+#link_cliente:hover {
+    background-color: #E6BC00;
+    color: #FFF;
+}
+
+
+/* Para los estilos del footer */
+
+.color_footer {
+    background-color: #1F065C;
+    color: #FFF;
+}

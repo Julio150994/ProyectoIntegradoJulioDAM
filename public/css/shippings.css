@@ -1,0 +1,50 @@
+#perfil {
+    width: 45px;
+    height: 45px;
+}
+
+#logo {
+    width: 70px;
+    height: 60px;
+}
+
+#logo_titulo {
+    font-size: 21px;
+}
+
+#cabecera {
+    background-color: #302E2E;
+}
+
+#navbar {
+    background-color: #302E2E;
+    margin-top: -1.25%;
+}
+
+
+/* Efectos hover en los textos del menú lateral y cabecera*/
+
+#link_admin:hover {
+    background-color: #302E2E;
+    color: #FFF;
+}
+
+.link_admin:hover .dropdown-menu {
+    background-color: #302E2E;
+    color: #FFF;
+    display: block;
+}
+
+.dropdown-menu:hover {
+    background-color: #302E2E;
+    color: #FFF;
+}
+
+
+/* Para los formularios de añadir y editar clientes del administrador */
+
+#formulario_cliente {
+    background-color: #0E5C99;
+    border: 0px solid #000;
+    border-radius: 6.25px;
+}

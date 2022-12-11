@@ -1,0 +1,60 @@
+/*-----------------Código CSS correspondiente a nuestro banner responsive flotante-------------------*/
+
+
+/* Código del contenedor exterior del banner */
+
+.banner_landgame {
+    background: none repeat scroll 0 0 #000;
+    background-image: url('../images/fondo_banner_landgame.png');
+    border: 1px solid #DDDDDD;
+    bottom: 0.5px;
+    margin-left: auto;
+    padding: 10px 0 0;
+    position: fixed;
+    text-align: center;
+    width: 1902.50px;
+    height: 937px;
+    z-index: 110;
+}
+
+
+/* Código de los contenedores interiores del banner */
+
+.banner_landgame .container_cerrar {
+    position: absolute;
+    margin-left: 113.17em;
+    margin-top: 2.9em;
+    color: #FFF;
+}
+
+.banner_landgame .container_cerrar a h3 {
+    font-size: 25px;
+}
+
+.banner_landgame .responsive-banner {
+    margin: 200px auto;
+    width: 40%;
+    min-width: 330px;
+    max-width: 730px;
+    height: auto;
+    min-height: 330px;
+    max-height: 730px;
+    border-radius: 5px;
+    overflow: hidden;
+    background-image: linear-gradient(to bottom right, #0E85E3, #D6D922);
+}
+
+.banner_landgame .responsive-banner .container-envelope {
+    position: relative;
+    padding-bottom: 30px;
+    padding-top: 25px;
+    color: #FFF;
+    font-size: 20px;
+}
+
+img {
+    max-width: 330px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
