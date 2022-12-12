@@ -1,0 +1,9 @@
+1º) composer install --------> instalación de carpeta vendor
+
+2º) Instalar archivo .env
+
+3º) Ejecutar: php artisan migrate:fresh --seed
+
+4º) Coger los datos del script de base de datos con insert
+
+5º) php artisan serve
