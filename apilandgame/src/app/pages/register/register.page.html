@@ -1,0 +1,98 @@
+<!-- Menú de la cabecera para el logout -->
+<ion-menu contentId="main-content">
+    <ion-header>
+        <ion-toolbar color="dark">
+            <ion-title align="center">Operaciones</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding" color="tertiary">
+        <ion-list>
+            <!-- Botón de para volver al inicio -->
+            <ion-item color="tertiary" (click)="backToMenu()" class="btnInicio">
+                <ion-text>
+                    <ion-icon name="arrow-back-circle"></ion-icon>
+                    <span>Volver a inicio</span>
+                </ion-text>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+
+<div class="ion-page" id="main-content">
+    <ion-header [translucent]="true">
+        <ion-toolbar color="dark">
+            <!-- Mostramos las barras de menú -->
+            <ion-buttons slot="start">
+                <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+
+            <ion-title align="center">Clientes Landgame</ion-title>
+        </ion-toolbar>
+    </ion-header>
+
+    <ion-content class="ion-padding" color="tertiary">
+        <h2 align="center" id="titulo">Registro de clientes</h2>
+
+        <div class="container">
+            <form [formGroup]="formularioCliente" (ngSubmit)="registrarCliente()" method="post">
+                <ion-item class="dato_usuario" color="light">
+                    <ion-label position="floating" color="dark">Nombre:</ion-label>
+                    <ion-input formControlName="nombre" type="text" required></ion-input>
+                </ion-item>
+                <!--<ion-label color="danger" *ngIf="formularioCliente.controls.nombre.errors?.required && (formularioCliente.touched || formularioCliente.dirty)">
+                  * Debe introducir un nombre.
+                </ion-label>-->
+
+                <ion-item class="dato_usuario" color="light">
+                    <ion-label position="floating" color="dark">Apellidos:</ion-label>
+                    <ion-input formControlName="apellidos" type="text" required></ion-input>
+                </ion-item>
+                <!--<ion-label color="danger" *ngIf="formularioCliente.controls.apellidos.errors?.required && (formularioCliente.touched || formularioCliente.dirty)">
+                  * Debe introducir unos apellidos.
+                </ion-label>-->
+
+                <ion-item class="dato_usuario" color="light">
+                    <ion-label position="floating" color="dark">Email:</ion-label>
+                    <ion-input formControlName="email" type="email" required>
+                    </ion-input>
+                </ion-item>
+                <!--<ion-label color="danger" *ngIf="formularioCliente.controls.email.errors?.required && (formularioCliente.touched || formularioCliente.dirty)">
+                  * Debe introducir un email.
+                </ion-label>-->
+                <!--<ion-label color="danger" *ngIf="formularioCliente.controls.email.errors?.email && (formularioCliente.touched || formularioCliente.dirty)">
+                  * Formato de email no válido.
+                </ion-label>-->
+
+                <ion-item class="dato_usuario" color="light">
+                    <ion-label position="floating" color="dark">Nombre de usuario:</ion-label>
+                    <ion-input formControlName="username" type="text" required>
+                    </ion-input>
+                </ion-item>
+                <!--<ion-label color="danger" *ngIf="formularioCliente.controls.username.errors?.required && (formularioCliente.touched || formularioCliente.dirty)">
+                  * Debe introducir un nombre de usuario.
+                </ion-label>-->
+
+                <ion-item class="dato_usuario" color="light">
+                    <ion-label position="floating" color="dark">Contraseña:</ion-label>
+                    <ion-input formControlName="password" type="password" required></ion-input>
+                </ion-item>
+                <!--<ion-label color="danger" *ngIf="formularioCliente.controls.password.errors?.required && (formularioCliente.touched || formularioCliente.dirty)">
+                  * Debe introducir una contraseña.
+                </ion-label>-->
+
+                <ion-item class="dato_usuario" color="light">
+                    <ion-label position="floating" color="dark">Confirma su contraseña:</ion-label>
+                    <ion-input formControlName="c_password" type="password" required></ion-input>
+                </ion-item>
+                <!--<ion-label color="danger" *ngIf="formularioCliente.controls.c_password.errors?.required && (formularioCliente.touched || formularioCliente.dirty)">
+                  * Debe introducir la misma contraseña.
+                </ion-label>-->
+
+                <ion-button expand="full" type="submit" [disabled]="!formularioCliente.valid" id="botonRegister" color="success">
+                    <ion-icon name="person"></ion-icon>
+                    <span>Registrar</span>
+                </ion-button>
+            </form>
+        </div>
+    </ion-content>
+</div>

@@ -1,0 +1,37 @@
+ion-list {
+    background-color: #5260FF;
+}
+
+.btnInicio:hover {
+    background-color: #E6BC00;
+    color: #FFF;
+}
+
+#imagen {
+    width: 200px;
+    height: 200px;
+}
+
+#textoBoton {
+    color: #FFF;
+}
+
+#fuente {
+    font-size: 14px;
+}
+
+
+/* Estilos de cada ion-item-sliding que recorremos */
+
+ion-item {
+    --background: #1F065C;
+}
+
+.bg-juego {
+    background-color: #1F065C;
+    color: #FFC107;
+}
+
+.bg-buscador {
+    background-color: #5260FF;
+}

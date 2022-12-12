@@ -1,0 +1,61 @@
+<!-- Menú para volver a la tienda más visualmente -->
+<ion-menu contentId="main-content">
+    <ion-header>
+        <ion-toolbar color="dark">
+            <ion-title align="center">Operaciones</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding" color="tertiary">
+        <ion-list>
+            <!-- Para volver al carrito nuevamente -->
+            <ion-item color="tertiary" (click)="backToCarrito()">
+                <ion-text>
+                    <ion-icon name="arrow-back-circle-outline"></ion-icon>
+                    <span>Volver a agregar juegos</span>
+                </ion-text>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+
+<div class="ion-page" id="main-content">
+    <ion-header [translucent]="true">
+        <ion-toolbar color="dark">
+            <!-- Mostramos las barras de menú -->
+            <ion-buttons slot="start">
+                <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+
+            <ion-title align="center">Pago</ion-title>
+        </ion-toolbar>
+    </ion-header>
+
+    <!-- Mostramos la suma de los precios de los juegos de carrito -->
+    <!-- <h2 class="font-bold text-white mt-xs-2 mt-lg-5 mt-md-5 pl-xs-2 pl-lg-4 pl-md-4"
+      id="precioTotalCompra"><span>Importe total:</span> {{ precioTotalCompra }} €</h2> -->
+
+    <ion-content [fullscreen]="true" color="tertiary">
+        <ion-grid class="ion-no-padding">
+            <ion-row class="ion-no-padding">
+                <ion-col class="ion-margin-top ion-padding ion-text-center"></ion-col>
+            </ion-row>
+        </ion-grid>
+        <ion-card class="welcome-card ion-margin">
+            <ion-card-header>
+                <ion-card-title><b>Pago de la compra</b></ion-card-title>
+                <ion-row>
+                    <ion-col style="padding-left: 0;">Total a pagar:</ion-col>
+                    <ion-col class="ion-text-end">
+                        {{ precioTotalCompra }} €
+                    </ion-col>
+                </ion-row>
+            </ion-card-header>
+            <ion-card-content class="ion-no-padding">
+                <!-- Para realizar el pago -->
+                <ion-button expand="full" color="success" class="ion-no-margin" (click)="realizarPago()">
+                    <span>Realizar pago</span>
+                </ion-button>
+            </ion-card-content>
+        </ion-card>
+    </ion-content>
+</div>

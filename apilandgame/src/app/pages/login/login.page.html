@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+    <ion-toolbar color="dark">
+        <ion-title align="center">Login Landgame</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" color="tertiary">
+    <div class="d-xs-flex d-lg-flex d-md-flex justify-content-center">
+        <div class="col-xs-4 col-lg-4 col-md-4 mt-xs-4 mt-lg-5 mt-md-5">
+            <ion-item class="container">
+                <div class="container-fluid d-flex justify-content-center">
+                    <ion-img src="/assets/images/logo_tienda.png" class="imagen"></ion-img>
+                </div>
+            </ion-item>
+
+            <form [formGroup]="user" class="container" color="tertiary" (ngSubmit)="cargarUsuario()" novalidate>
+                <ion-item>
+                    <ion-label position="floating">Nombre de usuario:</ion-label>
+
+                    <ion-input formControlName="username" type="text" name="username" id="username" [(ngModel)]="nombreUsuario">
+                    </ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label position="floating">Contraseña:</ion-label>
+
+                    <ion-input formControlName="password" type="password" name="password" id="password" [(ngModel)]="contrasenia">
+                    </ion-input>
+                </ion-item>
+
+                <ion-button class="btnCancelar mt-xs-3 mt-lg-3 mt-md-3" expand="full" (click)="backToMenu()">
+                    <ion-icon name="arrow-back-circle"></ion-icon>
+                    <span>Cancelar</span>
+                </ion-button>
+
+                <ion-button class="btnLogin mt-xs-4 mt-lg-4 mt-md-4" expand="full" [disabled]="!user.valid" type="submit">
+                    <ion-icon name="log-in"></ion-icon>
+                    <span>Iniciar sesión</span>
+                </ion-button>
+            </form>
+        </div>
+    </div>
+</ion-content>

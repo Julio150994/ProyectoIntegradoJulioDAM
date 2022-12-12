@@ -1,0 +1,8 @@
+{
+  "name": "apilandgame",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

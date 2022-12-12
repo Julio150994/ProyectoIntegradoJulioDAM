@@ -1,0 +1,88 @@
+<!-- Menú de la cabecera para login y register -->
+<ion-menu contentId="main-content">
+    <ion-header>
+      <ion-toolbar color="dark">
+        <ion-title align="center">Operaciones</ion-title>
+      </ion-toolbar>
+    </ion-header>
+  <ion-content class="ion-padding" color="tertiary">
+    <ion-list>
+      <!-- Botón de login de clientes -->
+      <ion-item color="tertiary" (click)="getFormularioLogin()" class="btnInicio">
+        <ion-text>
+          <ion-icon name="log-in-sharp"></ion-icon>
+          <span>Login</span>
+        </ion-text>
+      </ion-item>
+      <!-- Botón de registro de clientes -->
+      <ion-item color="tertiary" (click)="getFormularioRegister()" class="btnInicio">
+        <ion-text>
+          <ion-icon name="person-add"></ion-icon>
+          <span>Registro</span>
+        </ion-text>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<div class="ion-page" id="main-content">
+  <ion-header [translucent]="true">
+    <ion-toolbar color="dark">
+      <!-- Mostramos las barras de menú -->
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title align="center">Menú de clientes de Landgame</ion-title>
+    </ion-toolbar>
+
+    <!-- Para buscar nuestros juegos de mesa más fácilmente -->
+    <div class="bg-buscador">
+      <ion-searchbar color="dark" placeholder="Buscar por nombre de juego" animated
+        (ionChange)="buscarJuego($event)">
+      </ion-searchbar>
+    </div>
+  </ion-header>
+
+  <ion-content [fullscreen]="true" class="ion-padding" color="tertiary">
+     <!-- Mostramos los juegos de mesa en dos columnas -->
+  <ion-grid [fixed]="true">
+    <ion-row>
+
+      <ion-col *ngFor="let juego of listaJuegos | buscador: nombreJuego" size="6"
+        class="mt-4">
+        <ion-list #landgame class="w-100 h-100 bg-juego rounded">
+          <ion-item-sliding>
+            <ion-item>
+              <ion-row class="bg-juego rounded pl-5 pr-5">
+                <ion-col size="8">
+                  <span text-left id="fuente">
+                    Nombre: <span class="text-white">{{ juego.nombre }}</span>
+                  </span>
+                </ion-col>
+                <ion-col size="8">
+                  <span text-left id="fuente">
+                    Descripción: <span class="text-white">{{ juego.descripcion }}</span>
+                  </span>
+                </ion-col>
+                <ion-col size="8" id="fuente">
+                  <span>
+                    Imágen de juego:
+                    <ion-img src="../assets/{{ juego.url }}" class="bg-white rounded"
+                      alt="Juego de Landgame" id="imagen"></ion-img>
+                  </span>
+                </ion-col>
+                <ion-col size="8" id="fuente" class="h-50">
+                  <span>
+                    Precio: <span class="text-white">{{ juego.precio }} €</span>
+                  </span>
+                </ion-col>
+              </ion-row>
+            </ion-item>
+            <!--  Aquí no podemos visualizar el juego porque no hemos accedido a ningún cliente -->
+          </ion-item-sliding>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  </ion-content>
+</div>
