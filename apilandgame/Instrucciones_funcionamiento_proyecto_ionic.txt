@@ -1,0 +1,6 @@
+Instalar en Android Studio: Android SDK Build-Tools 32.1-rc1 solamente con la versión 30.0.3, para que
+se pueda ejecutar gradle sin problemas, ya que si hay otra distinta da problemas.
+
+En el directorio del proyecto de ionic, ejecutamos estos comandos:
+1º) npm install
+2º) ejecutar con ionic serve (ver en el ordenador) ó ionic cordova run android ver en el móvil)
