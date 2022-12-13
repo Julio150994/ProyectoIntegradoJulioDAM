@@ -35,5 +35,5 @@ Route::middleware(['auth:api', 'cliente'])->group( function (){
     Route::get('/juego/{id}', 'API\JuegosController@show');
 
     Route::post('/pedidos', 'API\PedidoController@aniadirPedido');
-    Route::post('/detallepedidos', 'API\PedidoController@aniadirDetallePedido');
+    Route::post('/detallespedidos', 'API\PedidoController@aniadirDetallePedido');
 });
