@@ -1,5 +1,0 @@
-EJECUTAR ESTOS COMANDOS:
-
-1º) npm install
-
-2º) ionic serve

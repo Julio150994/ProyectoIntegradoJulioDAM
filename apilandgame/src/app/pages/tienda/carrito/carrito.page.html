@@ -1,88 +1,90 @@
 <!-- Menú para volver a la tienda más visualmente -->
 <ion-menu contentId="main-content">
-  <ion-header>
-    <ion-toolbar color="dark">
-      <ion-title align="center">Operaciones</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content class="ion-padding" color="tertiary">
-    <ion-list>
-      <!-- Botón de login de clientes -->
-      <ion-item color="tertiary"(click)="backToShop()" class="btnInicio">
-        <ion-text>
-          <ion-icon name="arrow-back-circle-outline"></ion-icon>
-          <span>Volver a la tienda</span>
-        </ion-text>
-      </ion-item>
-    </ion-list>
-  </ion-content>
+    <ion-header>
+        <ion-toolbar color="dark">
+            <ion-title align="center">Operaciones</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding" color="tertiary">
+        <ion-list>
+            <!-- Botón de login de clientes -->
+            <ion-item color="tertiary" (click)="backToShop()" class="btnInicio">
+                <ion-text>
+                    <ion-icon name="arrow-back-circle-outline"></ion-icon>
+                    <span>Volver a la tienda</span>
+                </ion-text>
+            </ion-item>
+        </ion-list>
+    </ion-content>
 </ion-menu>
 
 <div class="ion-page" id="main-content">
-  <ion-header [translucent]="true">
-    <ion-toolbar color="dark">
-      <!-- Mostramos las barras de menú -->
-      <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-      <ion-title align="center">Tienda de Landgame</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <ion-header [translucent]="true">
+        <ion-toolbar color="dark">
+            <!-- Mostramos las barras de menú -->
+            <ion-buttons slot="start">
+                <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+            <ion-title align="center">Tienda de Landgame</ion-title>
+        </ion-toolbar>
+    </ion-header>
 
-  <ion-content class="ion-padding" color="tertiary">
-    <div class="d-flex justify-content-center">
-      <ion-label *ngFor="let juego of data" class="rounded">
-        <ion-card class="card d-lg-flex d-md-flex justify-content-center">
-          <ion-card-header color="primary" align="center">
-            <span>Información de juego</span>
-          </ion-card-header>
-          <ion-card-content class="text-dark">
-            <h3><strong>Nombre:</strong> {{ juego.nombre }}</h3>
-            <h3><strong>Descripción:</strong> {{ juego.descripcion }}</h3>
-            <h3>
-              <strong>Imágen: </strong>
-              <ion-img src="../assets/{{ juego.url }}" alt="Juego de Landgame" id="imagen"></ion-img>
-            </h3>
-            <h3>
-              <strong>Precio original:</strong>
-              <span class="precio" id="precio"> {{ juego.precio }} €</span>
-            </h3>
-            <h3>
-              <strong>Precio unitario:</strong>
-              <span class="precioUnitario" id="precioUnitario"> {{ precioUnitario | number : '1.2-2' }} €</span>
-            </h3>
-          </ion-card-content>
-        </ion-card>
+    <ion-content class="ion-padding" color="tertiary">
+        <div class="d-flex justify-content-center">
+            <ion-label *ngFor="let juego of data" class="rounded">
+                <ion-card class="card d-lg-flex d-md-flex justify-content-center">
+                    <ion-card-header color="primary" align="center">
+                        <span>Información de juego</span>
+                    </ion-card-header>
+                    <ion-card-content class="text-dark">
+                        <h3><strong>Nombre:</strong> {{ juego.nombre }}</h3>
+                        <h3><strong>Descripción:</strong> {{ juego.descripcion }}</h3>
+                        <h3>
+                            <strong>Imágen: </strong>
+                            <ion-img src="../assets/{{ juego.url }}" alt="Juego de Landgame" id="imagen"></ion-img>
+                        </h3>
+                        <h3>
+                            <strong>Precio original:</strong>
+                            <span class="precio" id="precio"> {{ juego.precio }} €</span>
+                        </h3>
+                        <h3>
+                            <strong>Precio unitario:</strong>
+                            <span class="precioUnitario" id="precioUnitario"> {{ precioUnitario | number : '1.2-2' }} €</span>
+                        </h3>
+                    </ion-card-content>
+                </ion-card>
 
-        <!-- Formulario para agregar juegos al carrito desde la aplicación móvil -->
-        <form (ngSubmit)="agregarCarrito(juego.id, juego.nombre, juego.descripcion, juego.url)" novalidate>
-          <ion-label class="rounded mt-xs-3 mt-lg-5 mt-md-5" *ngFor="let juego of data">
-            <ion-item>
-              <ion-label position="floating">Cantidad:</ion-label>
-              <ion-input type="number" name="cantidad" id="cantidad" value="{{ cantidadJuegos }}"
-                required disabled></ion-input>
-            </ion-item>
+                <!-- Formulario para agregar juegos al carrito desde la aplicación móvil -->
+                <form (ngSubmit)="agregarCarrito(juego.id, juego.nombre, juego.descripcion, juego.url)" novalidate>
+                    <ion-label class="rounded mt-xs-3 mt-lg-5 mt-md-5" *ngFor="let juego of data">
+                        <ion-item>
+                            <ion-label position="floating">Cantidad:</ion-label>
+                            <ion-input type="number" name="cantidad" id="cantidad" value="{{ cantidadJuegos }}" required disabled></ion-input>
+                        </ion-item>
 
-            <ion-button class="mt-xs-3 mt-lg-5 mt-md-5" color="warning" (click)="restarCantidad(juego.precio)">
-              <ion-icon name="remove-circle-sharp"></ion-icon>
-            </ion-button>
-            <ion-button color="primary" (click)="sumarCantidad(juego.precio)">
-              <ion-icon name="add-circle-sharp"></ion-icon>
-            </ion-button>
+                        <div class="text-center">
+                            <ion-button class="mt-xs-3 mt-lg-5 mt-md-5" color="warning" (click)="restarCantidad(juego.precio)">
+                                <ion-icon name="remove-circle-sharp"></ion-icon>
+                            </ion-button>
 
-            <ion-button expand="full" type="submit">
-              <ion-icon name="cart-sharp"></ion-icon>
-              <span>Agregar al carrito</span>
-            </ion-button>
+                            <ion-button color="primary" (click)="sumarCantidad(juego.precio)">
+                                <ion-icon name="add-circle-sharp"></ion-icon>
+                            </ion-button>
+                        </div>
+
+                        <ion-button expand="full" type="submit">
+                            <ion-icon name="cart-sharp"></ion-icon>
+                            <span>Agregar al carrito</span>
+                        </ion-button>
 
 
-            <ion-button expand="full" color="warning" (click)="verCarritoCompra()">
-              <ion-icon name="eye-sharp"></ion-icon>
-              <span>Ver carrito</span>
-            </ion-button>
-          </ion-label>
-        </form>
-      </ion-label>
-    </div>
-  </ion-content>
+                        <ion-button expand="full" color="warning" (click)="verCarritoCompra()">
+                            <ion-icon name="eye-sharp"></ion-icon>
+                            <span>Ver carrito</span>
+                        </ion-button>
+                    </ion-label>
+                </form>
+            </ion-label>
+        </div>
+    </ion-content>
 </div>

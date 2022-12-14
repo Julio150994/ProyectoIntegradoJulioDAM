@@ -13,12 +13,11 @@ export class InicioPage implements OnInit {
   listaJuegos: any[] = [];
   nombreJuego!: string;
 
-  
+
   constructor(private navCtrl: NavController, private tiendaService: TiendaService) { }
 
 
   ngOnInit() {
-    console.log('Menú de inicio de la aplicación Landgame');
     this.obtenerJuegos();
   }
 
@@ -44,7 +43,7 @@ export class InicioPage implements OnInit {
         this.juegosMesa = data;
         this.juegosMesa = this.juegosMesa.success;
         this.juegos = this.juegosMesa;
-  
+
         for (let indice = 0; indice < this.juegos?.length; indice++) {
           this.listaJuegos.push(this.juegos[indice]);
         }

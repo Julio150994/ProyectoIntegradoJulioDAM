@@ -30,8 +30,6 @@ export class JuegosPage implements OnInit {
 
 
   ngOnInit() {
-    console.log('Página de los juegos de mesa');
-
     this.token = localStorage.getItem('token');
     this.nombreUsuario = this.authService.getUsername();// recibimos el nombre de usuario del administrador o el cliente actual
     this.datoUsuario.push(this.nombreUsuario);
