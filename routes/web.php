@@ -95,17 +95,16 @@ Route::middleware(["auth", "cliente"])->group(function () {
 
     // Para añadir y/o actualizar cantidad del juego seleccionado utilizando sesiones
     Route::post('/juego/{id}', 'CarritoCompraController@aniadirCarrito')->name('cliente.aniadirCarrito');
-    Route::get('/juegos/carrito', 'CarritoCompraController@mostrarCarrito')->name('cliente.compra');
+    Route::get('/juegos/carrito', 'CarritoCompraController@mostrarCarrito')->name('cliente.juegosCarrito');
     Route::get('/juegos/carrito/delete/{juegoId}', 'CarritoCompraController@eliminarJuegoCarrito')
         ->name('cliente.eliminarJuego');
     Route::get('/juegos/carrito/cleaned', 'CarritoCompraController@limpiarCarrito')->name('cliente.limpiar');
 
+    Route::get('/juegos/carrito/compra', 'PayPalController@mostrarDireccionesEnvio')->name('cliente.compra');// para acceder al formulario de direcciones de envio
+    Route::post('/juegos/carrito/store', 'DireccionesEnvioController@aniadirDireccionEnvio')->name('cliente.direccionEnvio');
     Route::get('/juegos/carrito/paypal', 'PayPalController@mostrarVistaPayPal')->name('cliente.paypal');// para acceder a lo del paypal del cliente
     Route::post('/paypal/pago', 'PayPalController@pagarPayPal')->name('cliente.pago');// realizamos el pago
     Route::get('/paypal/estado', 'PayPalController@estadoPayPal')->name('cliente.estado');// para finalizar con el pago a través de PayPal
-
-    Route::post('/juegos/carrito/store', 'DireccionesEnvioController@aniadirDireccionEnvio')->name('cliente.direccionEnvio');
-    Route::get('/juegos/carrito/factura/pdf', 'DireccionesEnvioController@generarFactura')->name('cliente.factura_pdf');// generamos la factura en PDF
 
     // Rutas para editar el perfil del cliente
     Route::get('/perfil-cliente', 'PerfilClienteController@edit')->name('cliente.perfil');
