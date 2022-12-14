@@ -14,135 +14,144 @@
 {{-- Reutilizamos nuestro header como componente --}}
 <x-header/>
 
+
 <div class="container-fluid mt-5">
     {{-- Mensaje en modal para ver los datos actuales de compra en sesión al pulsar "Añadir al carrito" --}}
     @if(session('sesion_carrito'))
         <div class="container-fluid col-xs-12 col-lg-8 col-md-8">
             <div class="alert alert-success">
                 <h3 class="text-left">Juego añadido correctamente al carrito</h3>
-        
+
                 <p><strong>Cantidad: </strong> {{ session('sesion_carrito')[0] }}</p>
                 <p><strong>Precio total: </strong> {{ session('sesion_carrito')[1] }} €</p>
             </div>
         </div>
     @endif
 
-    <div class="row row-cols-lg-3 p-5 mb-5">
-        <div class="mb-5 mr-5 centrado_carrito">
-            <div class="col-9 m-1 juego_mesa rounded ml-5">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-xs-2 col-lg-3 col-md-3">
                 @foreach ($imagenes as $imagen)
-                    <div class="align-content-center">
-                        @if ($juegoMesa->id == $imagen->juego_id)
-                            <div class="bg-light rounded altura_imagen">
-                                <img class="img-fluid w-auto justify-content-center ml-xs-1 ml-lg-3 ml-md-3 medidas_imagen" loading="lazy" src="{{ asset($imagen->url) }}"
-                                    draggable="false" decoding="async" alt="Juego de Landgame" data-text="Error al mostrar esta imagen."
-                                    data-text-short="No se pudo cargar la imagen"/>
-                            </div>
-                        @endif
-                    </div>
+                    @if ($juegoMesa->id == $imagen->juego_id)
+                        <div class="rounded altura_imagen">
+                            <img class="img-fluid h-75 w-100 justify-content-left" loading="lazy" src="{{ asset($imagen->url) }}"
+                                draggable="false" decoding="async" alt="Juego de Landgame" data-text="Error al mostrar esta imagen."
+                                data-text-short="No se pudo cargar la imagen"/>
+                        </div>
+                    @endif
                 @endforeach
+            </div>
 
-                <a href="{{ route('menu_tienda') }}" class="btn btn-md border border-0 mt-5" id="btnMenu">
-                    <span class="fas fa-solid fa-arrow-left"></span>
-                    <span>Volver al menú</span>
-                </a>
+            <div class="col-xs-4 col-lg-6 col-md-6 mb-xs-3 mb-lg-4 mb-md-4">
+                <div class="ml-xs-3 ml-lg-5 ml-md-5">
+                    <h3>{{ $juegoMesa->nombre }}</h3>
+                </div>
+                <div class="mt-xs-3 mt-lg-3 mt-md-3">
+                    <span class="ml-xs-2 ml-lg-5 ml-md-5">{{ $juegoMesa->descripcion }}</span>
+                </div>
+
+                <div class="mt-xs-2 mt-lg-4 mt-md-4"></div>
+
+                <div class="mt-xs-3 mt-lg-5 mt-md-5 ml-xs-3 ml-lg-5 ml-md-5">
+                    <div class="rounded border border-dark fondo_carrito mt-xs-3 mt-lg-5 mt-md-5 p-xs-3 p-lg-5 p-md-5">
+                        <form action="{{ route('cliente.aniadirCarrito', $juegoMesa->id) }}" method="POST">
+                            @csrf
+
+                            <div class="row align-items-center">
+                                <div class="col-xs-3 col-lg-4 col-md-4">
+                                    <h4 class="text-left text-white" name="precioUnitario" value="{{ old($juegoMesa->precio,2) }}" id="precioUnitario">
+                                        {{ number_format($juegoMesa->precio,2) }} €/ud.
+                                    </h4>
+                                </div>
+
+                                <div class="col">
+                                    <input type="button" class="btn btn-md text-white rounded-circle" id="btnRestar" value="-"
+                                        onclick="restarCantidad('{{ number_format($juegoMesa->precio,2) }}')"/>
+                                </div>
+
+                                <div class="col">
+                                    <input class="form-control @error('cantidad') is-invalid @enderror" name="cantidad"
+                                        value="{{ old('cantidad') }}" placeholder="1" id="cantidad"
+                                        required autocomplete="cantidad"/>
+
+                                    @error('cantidad')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+
+                                <div class="col">
+                                    <input type="button" class="btn btn-md btn-primary text-white rounded-circle" id="btnSumar" value="+"
+                                        onclick="sumarCantidad('{{ number_format($juegoMesa->precio,2) }}')"/>
+                                </div>
+
+                                <div class="col">
+                                    <input type="hidden" step="0.01" class="form-control @error('precioUnitario') is-invalid @enderror" name="precioUnitario"
+                                        value="{{ number_format($juegoMesa->precio,2) }}" id="precioUnitario" required autocomplete="precioUnitario">
+
+                                    @error('precioUnitario')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+
+                                <div class="col-xs-2 col-lg-4 col-md-4">
+                                    <button type="submit" class="btn btn-md text-white" data-bs-toggle="modal"
+                                        data-bs-target="#carrito" id="btnCarrito">
+                                        <span class="fas fa-solid fa-cart-shopping"></span>
+                                        <span>Añadir al carrito</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="mt-xs-2 mt-lg-5 mt-md-5">
+                    <div class="row">
+                        <div class="col-4 ml-5">
+                            <a href="{{ route('menu_tienda') }}" class="btn btn-md border border-0 mt-5" id="btnMenu">
+                                <span class="fas fa-solid fa-arrow-left"></span>
+                                <span>Volver al menú</span>
+                            </a>
+                        </div>
+
+                        <div class="col-2">
+                            <a href="{{ route('cliente.compra') }}" class="btn btn-warning text-white border border-0" id="btnMenu">
+                                <span class="fas fa-solid fa-eye"></span>
+                                <span>Ver carrito</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="mr-5 mb-5">
-            <h3 class="text-white">{{ $juegoMesa->nombre }}</h3>
-
-            <div class="mt-3">
-                <strong>Descripción</strong>
-                <p>{{ $juegoMesa->descripcion }}</p>
-            </div>
-
-            <div class="mt-4">
-                <strong>Stock</strong>
-
-                @if($juegoMesa->stock == 1)
-                    <span class="bg-success text-white ml-4 pl-2 pr-2 rounded">
-                        En Stock
-                    </span>
-                @else
-                    <span class="ml-4 pl-2 pr-2 rounded btnStock">
-                        No en Stock
-                    </span>
-                @endif
-            </div>
-
-            <div class="rounded border border-dark juego_mesa fondo_carrito h-50 mt-5">
-                <form class="mensajeModal m-3" action="{{ route('cliente.aniadirCarrito', $juegoMesa->id) }}" method="POST">
-                    @csrf
-    
-                    <h4 class="text-left text-white" name="precioUnitario" value="{{ old($juegoMesa->precio,2) }}" id="precioUnitario">
-                        {{ number_format($juegoMesa->precio,2) }} €
-                    </h4>
-    
-                    <div class="text-center rounded container_carrito">
-                        <div class="row m-4 align-items-center pt-5">
-                            <div class="col-auto ml-2">
-                                <label for="cantidad" class="col-form-label">
-                                    <span class="text-white">Cantidad:</span>
-                                </label>
-                            </div>
-                            <div class="col-auto">
-                                <input type="number" class="form-control @error('cantidad') is-invalid @enderror" name="cantidad"
-                                    value="{{ old('cantidad') }}" placeholder="1" id="cantidad"
-                                    required autocomplete="cantidad"/>
-    
-                                @error('cantidad')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            
-                            <div class="col-auto">
-                                <input type="button" class="btn btn-md text-white" id="btnRestar" value="-"
-                                    onclick="restarCantidad('{{ number_format($juegoMesa->precio,2) }}')"/>
-                            </div>
-    
-                            <div class="col-auto">
-                                <input type="button" class="btn btn-md btn-primary text-white" id="btnSumar" value="+"
-                                    onclick="sumarCantidad('{{ number_format($juegoMesa->precio,2) }}')"/>
-                            </div>
-    
-                            {{-- Comprobación de envio de precio correcta antes de ocultar --}}
-                            <div class="col-auto mt-3">
-                                <input type="hidden" step="0.01" class="form-control @error('precioUnitario') is-invalid @enderror" name="precioUnitario"
-                                    value="{{ number_format($juegoMesa->precio,2) }}" id="precioUnitario" required autocomplete="precioUnitario">
-    
-                                @error('precioUnitario')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-    
-                        <div class="container-fluid mt-5">
-                            <div class="ml-4 mr-5">
-                                <button type="submit" class="btn btn-block text-white" data-bs-toggle="modal"
-                                    data-bs-target="#carrito" id="btnCarrito">
-                                    <span class="fas fa-solid fa-cart-shopping"></span>
-                                    <span>Añadir al carrito</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-            {{-- Enlace para el pay pal --}}
-            <div class="mt-xs-2 mt-lg-5 mt-md-5">
-                <a href="{{ route('cliente.compra') }}" class="btn btn-warning text-white border border-0" id="btnMenu">
-                    <span class="fas fa-solid fa-eye"></span>
-                    <span>Ver carrito</span>
-                </a>
+        <div class="mr-xs-3 mr-lg-5 mr-md-5">
+            <div class="container-xl border-dark fondo_carrito p-xs-2 p-lg-4 p-md-4 mb-xs-3 mb-lg-5 mb-md-5">
+                <div class="row p-xs-2 p-lg-4 p-md-4">
+                  <div class="col-sm-5">
+                    <span class="fas fa-solid fa-tag"></span>
+                    <p>MEJOR PRECIO GARANTIZADO</p>
+                    <p>o te abonamos la diferencia <a href="#">+info</a></p>
+                  </div>
+                  <div class="col-sm-5">
+                    <span class="fas fa-solid fa-book-bookmark"></span>
+                    <p>ENTREGA 24/48H</p>
+                    <p>laborales</p>
+                  </div>
+                  <div class="col-sm">
+                    <span class="fas fa-solid fa-shield"></span>
+                    <p>COMPRA</p>
+                    <p>100% segura</p>
+                  </div>
+                </div>
             </div>
         </div>
     </div>
+
 
     {{-- Mostramos el "carrito de la compra" borrar posteriormente --}}
     @yield('compra_juegos')

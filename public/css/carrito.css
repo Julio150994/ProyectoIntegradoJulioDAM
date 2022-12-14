@@ -22,31 +22,6 @@
 }
 
 
-/**-------  Para el scroll de la tabla del carrito  -------------*/
-
-
-/*.table-bordered thead,
-.table-bordered tbody {
-    height: 330px;
-    overflow-y: auto;
-    width: 100%;
-}
-
-.table-bordered thead,
-.table-bordered tbody,
-.table-bordered tr,
-.table-bordered td,
-.table-bordered th {
-    display: block;
-}
-
-.table-bordered thead>tr>th,
-.table-bordered tbody>tr>td {
-    float: left;
-    border-bottom-width: 0;
-}*/
-
-
 /**-------  Para hacer nuestro botón de PayPal responsive  -------------*/
 
 
@@ -88,7 +63,7 @@
 
 /** ----------- Diseño del formulario direcciones de envio  ----------------- */
 
-.container-envios {
+.fondo-carrito {
     background-color: #1F065C;
     color: #FFF;
 }
