@@ -23,6 +23,12 @@
         </div>
     @endif
 
+    <a class="btn btn-dark text-white text-decoration-none ml-xs-3 ml-lg-5 ml-md-5"
+        href="{{ route('cliente.compra') }}" id="link_paypal">
+        <span class="fas fa-solid fa-arrow-left"></span>
+        <span>Volver</span>
+    </a>
+
      {{-- Botón para realizar el pago con PayPal de este nuevo pedido --}}
      <div class="bg-paypal purple container p-xs-3 p-lg-4 p-md-4 rounded text-center">
         <div class="ml-xs-2 ml-lg-3 ml-md-3">
