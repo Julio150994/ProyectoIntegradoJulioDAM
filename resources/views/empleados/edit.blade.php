@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
 @section('content')
-<div class="container mt-3 pb-5 pl-4" id="formulario_cliente">
+<div class="container mt-3 pb-5 pl-4">
     <div class="row justify-content-center">
         <div class="col-md-8 mt-5">
             <div class="card pr-5 pl-4">
@@ -114,12 +114,16 @@
                                         <option value="{{ $rol->id }}">{{ $rol->nombre }}</option>
                                     @endforeach
                                 </select>
-                                
+
                                 @error('role_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                            </div>
+
+                            <div class="row pt-3 pr-4 pl-4 mb-xs-2 mb-lg-3 mb-md-3">
+                                <strong>Rol de empleado actual: </strong> <span>{{ $rolEmpleadoActual }}</span>
                             </div>
                         </div>
 

@@ -25,7 +25,7 @@ class EmpleadoController extends Controller
 
         // Consulta para visualizar todos los empleados en orden descendente
         $empleados = User::orderBy('id', 'DESC')->where('role_id', 2)->orWhere('role_id', 3)->paginate(5);
-        
+
         foreach ($roles as $item => $role) {
             return view('empleados.index', compact('empleados', 'role'));
         }
@@ -104,8 +104,24 @@ class EmpleadoController extends Controller
      */
     public function edit($id) {
         $empleado = User::find($id);
-        $roles = Role::orderBy('id', 'ASC')->where('id', 2)->orWhere('id', 3)->get();
-        return view('empleados.edit', compact('empleado','roles'));
+
+        $usernameEmpleado = $empleado->username;
+
+        // Obtenemos el rol de empleado actual
+        $usuarios = DB::table('roles')
+            ->join('users', 'users.role_id', '=', 'roles.id')
+            ->select('roles.nombre')
+            ->where('users.username', $usernameEmpleado)
+            ->get();
+
+
+        foreach ($usuarios as $auxEmpleado) {
+            foreach ($auxEmpleado as $rolEmpleadoActual) {
+                $roles = Role::orderBy('id', 'ASC')->where('id', 2)->orWhere('id', 3)->get();
+
+                return view('empleados.edit', compact('empleado', 'roles', 'rolEmpleadoActual'));
+            }
+        }
     }
 
     /**
@@ -117,7 +133,7 @@ class EmpleadoController extends Controller
      */
     public function update(Request $request, $id) {
         // Para la validación del empleado seleccionado
-        
+
         $this->validate($request, [
                 'nombre' => 'required|max:40',
                 'apellidos' => 'required|max:60',
