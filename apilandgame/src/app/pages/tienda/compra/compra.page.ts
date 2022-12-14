@@ -29,8 +29,6 @@ export class CompraPage implements OnInit {
 
   ngOnInit() {
     this.token = localStorage.getItem('token');
-
-    console.log('Carrito de la compra del cliente');
     this.mostrarJuegosCarrito();
   }
 

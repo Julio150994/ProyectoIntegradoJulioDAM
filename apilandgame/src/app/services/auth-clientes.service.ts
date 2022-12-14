@@ -28,14 +28,11 @@ export class AuthClientesService {
 
   /** Para registrar nuestros clientes desde el servicio */
   register(nombre: any, apellidos: any, email: any, username: any, password: any, c_password: any) {
-      console.log('Contraseña: '+password);
-      console.log('Contraseña confirmada: '+c_password);
-
       return new Promise(resolve => {
         this.httpCliente.post<any>(this.apiUrl+'/register?'+'nombre='+nombre+'&apellidos='+apellidos+
         '&email='+email+'&password='+password, {
         }).subscribe(datoUsuario => {
-        console.log(datoUsuario);
+
         this.cliente = datoUsuario;
         resolve(datoUsuario);
 
@@ -43,7 +40,7 @@ export class AuthClientesService {
 
         this.navCtrl.navigateForward('/login');
       }, error => {
-        console.log('Error al registrar este usuario '+error);
+
       });
     });
   }
@@ -56,7 +53,6 @@ export class AuthClientesService {
         password: password
       }).subscribe(data => {
         /* Para cuando este sea usuario cliente */
-        console.log(data);
         this.user = data;
         this.datosUsuario = this.user.success;
 
@@ -68,7 +64,7 @@ export class AuthClientesService {
         localStorage.setItem('token', this.token);
         resolve(data);
       }, error => {
-          console.error('Error al iniciar sesión con este usuario '+error);
+
       });
     });
   }
@@ -86,7 +82,7 @@ export class AuthClientesService {
           res(data);
         }
       }, error => {
-        console.error('Error al mostrar los usuarios '+error);
+
       });
     });
   }

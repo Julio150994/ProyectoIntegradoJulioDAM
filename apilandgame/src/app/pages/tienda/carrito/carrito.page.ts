@@ -45,8 +45,6 @@ export class CarritoPage implements OnInit {
 
 
   async verJuegoTienda(idJuego: number, token: any) {
-    console.log('Vista del carrito de la compra');
-
     await this.tiendaService.obtenerJuego(idJuego, token)
     .then(data => {
       this.encontrado = data;

@@ -45,12 +45,11 @@ export class LoginPage implements OnInit {
 
 
   ngOnInit() {
-    console.log('Página de login de los clientes');
+
   }
 
   /** Para volver al menú de inicio cuando cancelamos el iniciar sesión con el administrador */
   backToMenu() {
-    console.log('Has cancelado el iniciar sesión');
     this.navCtrl.navigateForward('/inicio');
   }
 
@@ -75,15 +74,8 @@ export class LoginPage implements OnInit {
         }
       }
 
-      console.log('Username: ',this.credentialUsername);
-      console.log('Password encriptada: ',this.credentialPassword);
-
       // Desencriptamos contraseña
       this.contraseniaDesencriptada = Buffer.from(this.credentialPassword, 'base64').toString('binary');
-      console.log('Contraseña desencriptada: '+this.contraseniaDesencriptada);
-
-      console.log('Password introducida en formulario: '+this.contrasenia);
-
       this.usuarioEncontrado = this.users.find((user: { username: string; }) => user.username === this.username);
 
       /** Validamos si el usuario está contemplado o no en la tienda */

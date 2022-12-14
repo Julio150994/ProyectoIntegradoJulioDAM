@@ -14,8 +14,7 @@ export class PaypalService {
   carritoCliente: any[] = [];
 
 
-  constructor(private httpPay: HttpClient, private loadingCtrl: LoadingController,
-      private alertCtrl: AlertController) { }
+  constructor(private httpPay: HttpClient) { }
 
 
   /** Para añadir nuestro pedido después de realizar el pago */
@@ -29,14 +28,13 @@ export class PaypalService {
             console.log(data);
             this.pedido = data;
             res(this.pedido);
-            console.log('Pedido añadido correctamente');
         }, error => {
-          console.log('Error al añadir este pedido. '+error);
+
         });
     });
   }
 
-  aniadirDetallePedido(token: any, cantidad: number, precioUnitario: number, pedidoId: any,
+  aniadirDetallePedido(token: any, cantidad: any, precioUnitario: any, pedidoId: any,
       juegoId: any) {
     return new Promise(res => {
       this.httpPay.post<any>(this.apiUrl+'/detallespedidos?cantidad='+cantidad+'&precioUnitario='+
@@ -46,9 +44,8 @@ export class PaypalService {
             console.log(data);
             this.detallePedido = data;
             res(this.detallePedido);
-            console.log('Detalle de pedido añadido correctamente');
         }, error => {
-          console.log('Error con este detalle del pedido. '+error);
+
         });
     });
   }

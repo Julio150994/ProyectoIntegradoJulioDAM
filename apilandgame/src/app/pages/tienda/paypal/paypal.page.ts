@@ -36,8 +36,6 @@ export class PaypalPage implements OnInit {
   ngOnInit() {
     this.token = localStorage.getItem('token');
 
-    console.log('Página para realizar el pago con PayPal');
-
     this.precioTotalCompra = this.carritoService.getTotalCompra();// precio total de la compra
     this.juegosCarrito = this.carritoService.mostrar();
   }
@@ -70,7 +68,6 @@ export class PaypalPage implements OnInit {
 
     // Añadimos el pedido con sus datos correspondientes, junto con sus detalles
     this.estado = "Pagado";
-    console.log(this.estado);
 
     const fecha = new Date();
     const dia = fecha.getDate();
@@ -79,9 +76,7 @@ export class PaypalPage implements OnInit {
     this.fechaActual.push(anio, mes, dia);
 
     this.fechaCompra = this.fechaActual[0]+"-"+this.fechaActual[1]+"-"+this.fechaActual[2];
-    console.log('Fecha obtenida: ',this.fechaCompra);
     this.clienteId = this.authService.getIdUsario();
-    console.log('Id cliente: ',this.clienteId);
 
     this.nuevoPedido = await this.payService.aniadirPedido(this.token, this.precioTotalCompra, this.fechaCompra, this.clienteId, this.estado);
 

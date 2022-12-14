@@ -35,12 +35,11 @@ export class RegisterPage implements OnInit {
 
 
   ngOnInit() {
-    console.log('Formulario de registro de clientes');
+
   }
 
   /** Para volver al menú de inicio cuando cancelamos el iniciar sesión con el administrador */
   backToMenu() {
-    console.log('Has cancelado el registrar clientes');
     this.navCtrl.navigateForward('/inicio');
   }
 
@@ -58,7 +57,6 @@ export class RegisterPage implements OnInit {
     }
     else {
       this.txtContrasenia = 'Las contraseñas introducidas deben coincidir';
-      console.warn(this.txtContrasenia);
       this.alertContrasenias(this.txtContrasenia);
     }
   }

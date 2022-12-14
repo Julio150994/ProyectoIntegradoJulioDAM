@@ -25,8 +25,6 @@ export class CarritoService {
   /** Métodos para el servicio de nuestro carrito "en sesión" */
 
   mostrar() {
-    console.log('Juegos mostrados: ');
-    console.log(this.carritoCliente);
     return this.carritoCliente;
   }
 
@@ -57,8 +55,6 @@ export class CarritoService {
     this.listaPrecios.forEach(function(numero) {
         sumaPrecios += numero;
     });
-
-    console.log('Importe total: '+sumaPrecios);
 
     this.sumaTotal = sumaPrecios.toFixed(2);// formateamos el total a dos decimales
     this.setTotalCompra(this.sumaTotal);
@@ -195,8 +191,6 @@ export class CarritoService {
       if (juegoObtenido == this.carritoCliente[indice]) {
         this.carritoCliente.splice(indice, 1);// para eliminar el juego de mesa obtenido con cantidad a eliminar 1
       }
-
-      console.log(this.carritoCliente);
     }
   }
 

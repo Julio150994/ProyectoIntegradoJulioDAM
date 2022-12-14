@@ -30,7 +30,6 @@ export class TiendaService {
       this.httpCliente.get<any>(this.apiUrl+'/juegos', {
         headers: new HttpHeaders().set('Authorization', 'Bearer '+ token)
       }).subscribe(data => {
-        console.log(data);
 
         if (data == null) {
           this.mensajeJuegos = 'No se han encontrado juegos en la tienda'
@@ -40,7 +39,7 @@ export class TiendaService {
           res(data);
         }
       }, error => {
-        console.error('Error al mostrar los juegos '+error);
+
       });
     });
   }
@@ -50,12 +49,11 @@ export class TiendaService {
       this.httpCliente.get<any>(this.apiUrl+'/juego/'+idJuego, {
         headers: new HttpHeaders().set('Authorization', 'Bearer '+ token)
       }).subscribe(data => {
-        console.log(data);
         this.encontrado = data;
         this.juego = this.encontrado.success;
         res(data);
       }, error => {
-        console.log('Error al mostrar el juego '+error);
+
       });
     });
   }

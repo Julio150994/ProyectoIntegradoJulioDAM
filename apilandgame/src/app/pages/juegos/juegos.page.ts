@@ -83,8 +83,6 @@ export class JuegosPage implements OnInit {
       ]
     });
     await cliente.present();
-
-    console.log(username+' ha cerrado sesión correctamente.');
   }
 
 
