@@ -76,3 +76,7 @@
     width: 520px !important;
     height: 700px !important;
 }
+
+.bg-paypal {
+    background-color: #1F065C;
+}

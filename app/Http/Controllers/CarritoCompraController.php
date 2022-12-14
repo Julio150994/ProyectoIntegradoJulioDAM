@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\ImagenesJuego;
 use App\Juego;
 use Illuminate\Http\Request;
-//use Illuminate\Support\Facades\Auth;
+
 
 class CarritoCompraController extends Controller
 {
@@ -15,7 +15,7 @@ class CarritoCompraController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function aniadirCarrito(Request $request, $id) {
+     public function aniadirCarrito(Request $request, $id) {
         $juegoId = intval($id);//pasamos de dato string a entero
 
         $idJuego = ($juegoId * 2) - 1;
@@ -28,10 +28,10 @@ class CarritoCompraController extends Controller
             ],
             ['cantidad.required' => __("Debe introducir una cantidad")]
         );
-        
+
         $data['cantidad'] = $request->input('cantidad');
         $cantidad = intval($data['cantidad']);
-        
+
         $data['precioUnitario'] = $request->input('precioUnitario');
         $formatoPrecio = floatval($data['precioUnitario']) * $cantidad;// poner para formato de dos decimales (fácil)
         $precioUnitario = number_format($formatoPrecio, 2);// formatear a dos decimales desde un inicio
@@ -95,12 +95,12 @@ class CarritoCompraController extends Controller
             $request->session()->put('sumaPrecios', $sumaPrecios);// para evitar que la suma anterior se mantenga
         }
 
-        return view('cliente.compra', compact('juegoCarrito'));
+        return view('cliente.juegosCarrito', compact('juegoCarrito'));
     }
 
     public function eliminarJuegoCarrito(Request $request, $juegoId) {
         $juegoCarrito = $request->session()->get('juegosCarrito');
-        
+
         foreach ($juegoCarrito as $juego) {
             $nombre = $juego['nombre'];
             $descripcion = $juego['descripcion'];
@@ -117,18 +117,13 @@ class CarritoCompraController extends Controller
                     $precioUnitario = number_format($precio, 2);
                     $juego['precioUnitario'] = $precioUnitario;
 
-                    // Eliminamos un elemento del elemento de la sesión de la lista de juegos
-                    /*$request->session()->forget('juegosCarrito', ['nombre' => $nombre, 'descripcion' => $descripcion,
-                        'imagen' => $imagen, 'cantidad' => $juego['cantidad'],
-                        'precioUnitario' => $juego['precioUnitario'], 'juegoId' => $juegoId]);*/
-                    
                     /** Editamos el juego seleccionado al eliminar del carrito cantidad y precioUnitario anteriores */
                     $request->session()->push('juegosCarrito', ['nombre' => $nombre, 'descripcion' => $descripcion,
                         'imagen' => $imagen, 'cantidad' => $juego['cantidad'],
                         'precioUnitario' => $juego['precioUnitario'], 'juegoId' => $juegoId]);
-                    
-                    
-                    return redirect()->route('cliente.compra')
+
+
+                    return redirect()->route('cliente.juegosCarrito')
                         ->with('mensaje_compra', ['danger', __("Juego $nombre eliminado de su carrito")]);
                 }
                 else if ($juego['cantidad'] == 0) {
@@ -137,7 +132,7 @@ class CarritoCompraController extends Controller
                         'imagen' => $imagen, 'cantidad' => $juego['cantidad'],
                         'precioUnitario' => $juego['precioUnitario'], 'juegoId' => $juegoId]);
 
-                    return redirect()->route('cliente.compra')
+                    return redirect()->route('cliente.juegosCarrito')
                         ->with('mensaje_compra', ['danger', __("Juegos ".$juego['nombre']." eliminado de su carrito")]);
                 }
             }
@@ -147,12 +142,12 @@ class CarritoCompraController extends Controller
     public function limpiarCarrito(Request $request) {
         /** Obtenemos nuevamente todos los juegos de mesa de la sesión */
         $juegoCarrito = $request->session()->get('juegosCarrito');
-        
+
         if (is_array($juegoCarrito) && !empty($juegoCarrito)) {
             $request->session()->forget('juegosCarrito');
         }
 
-        return redirect()->route('cliente.compra')
+        return redirect()->route('cliente.juegosCarrito')
             ->with('mensaje_compra', ['danger', __("Todos los juegos eliminados de su carrito")]);
     }
 
@@ -175,6 +170,6 @@ class CarritoCompraController extends Controller
             $precioTotalCompra = $request->session()->get('sumaPrecios');
         }
 
-        return view('cliente.paypal', compact('cantidadJuegos', 'precioTotalCompra'));
+        return view('cliente.compra', compact('cantidadJuegos', 'precioTotalCompra'));
     }
 }

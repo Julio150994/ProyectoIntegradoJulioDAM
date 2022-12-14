@@ -5,12 +5,10 @@ namespace App\Http\Controllers;
 use App\DireccionesEnvio;
 use App\EmpresasReparto;
 use App\Pedido;
-use App\Mail\EmailLandgame;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\Mail;
 use PayPal\Auth\OAuthTokenCredential;
 use PayPal\Exception\PayPalConnectionException;
 use PayPal\Rest\ApiContext;
@@ -36,7 +34,7 @@ class PayPalController extends Controller
                 $configuracionPayPal['secret'] = 'EMQdcVdJ3WsiQ2OmwVJZvOdeHeG8oj7FZAUSSwacVDH9pEn83nudXwEL9dvzED3nTm4uMlSrnIIH7bcq'
             )
         );
-        
+
         $this->apiContext->setConfig(
             array(
                 'mode' => env('PAYPAL_MODE', 'sandbox'),
@@ -48,7 +46,7 @@ class PayPalController extends Controller
         );
     }
 
-    public function mostrarVistaPayPal(Request $request) {
+    public function mostrarDireccionesEnvio(Request $request) {
         $clienteId = Auth::user()->id;// id de cliente actual
         $clienteActual = Auth::user()->username;// nombre de usuario actual
 
@@ -58,13 +56,24 @@ class PayPalController extends Controller
 
         /** Obtenemos las empresas de reparto y los pedidos */
         $empresasReparto = EmpresasReparto::orderBy('id', 'ASC')->get();
-        
+
         $pedidosCliente = Pedido::where('cliente_id', $clienteId)->get();
 
         $direccionEnvioCliente = DireccionesEnvio::where('cliente_id', $clienteId)->count();
 
-        return view('cliente.paypal', compact('clienteId', 'clienteActual', 'precioTotalCompra',
+        return view('cliente.compra', compact('clienteId', 'clienteActual', 'precioTotalCompra',
             'empresasReparto', 'pedidosCliente', 'direccionEnvioCliente'));
+    }
+
+
+    public function mostrarVistaPayPal(Request $request) {
+        $clienteActual = Auth::user()->username;// nombre de usuario actual
+
+        /** Recogemos la sesión de la suma de los precios del carrito */
+        $precioFormateado = $request->session()->get('sumaPrecios');
+        $precioTotalCompra = number_format($precioFormateado, 2);// para redondear a dos decimales desde el controlador
+
+        return view('cliente.paypal', compact('clienteActual', 'precioTotalCompra'));
     }
 
     /**---------Funcionalidades para gestionar la parte del paypal para cada cliente---------*/
@@ -72,7 +81,7 @@ class PayPalController extends Controller
         $pagador = new Payer();
         $pagador->setPaymentMethod('paypal');
         $juegosCarrito = $request->session()->get('juegosCarrito');
-        
+
         // Recogemos el precio total de los juegos en un campo de texto de PayPal
         $precioTotalCompra = $request->session()->get('sumaPrecios');
 
@@ -96,7 +105,7 @@ class PayPalController extends Controller
             ->setPayer($pagador)
             ->setTransactions(array($transaccion))
             ->setRedirectUrls($redirectPayPal);
-        
+
         $this->apiContext->getCredential()->getAccessToken(['accessToken']);
 
         try {

@@ -119,7 +119,7 @@
                         </div>
 
                         <div class="col-2">
-                            <a href="{{ route('cliente.compra') }}" class="btn btn-warning text-white border border-0" id="btnMenu">
+                            <a href="{{ route('cliente.juegosCarrito') }}" class="btn btn-warning text-white border border-0" id="btnMenu">
                                 <span class="fas fa-solid fa-eye"></span>
                                 <span>Ver carrito</span>
                             </a>
