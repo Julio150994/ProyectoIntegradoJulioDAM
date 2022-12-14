@@ -27,65 +27,6 @@
                     <li class="mb-2 text-white">Versión 1.0.0</li>
                 </ul>
                 </div>
-
-                {{-- <div class="col-6 col-lg-2 offset-lg-1 mb-3">
-                    <h5>Sobre Landgame</h5>
-                    <ul class="list-unstyled mt-4">
-                        <li class="mb-2">
-                        <a href="#" class="text-decoration-none text-white" id="texto">Sobre nosotros</a>
-                        </li>
-                        <li class="mb-2">
-                        <a href="#" class="text-decoration-none text-white" id="texto">Contacto</a>
-                        </li>
-                        <li class="mb-2">
-                        <a href="#" class="text-decoration-none text-white" id="texto">Trabajo</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-6 col-lg-2 mb-3">
-                    <h5>Comprar</h5>
-                    <ul class="list-unstyled mt-4">
-                        <li class="mb-2">
-                        <a href="#" class="text-decoration-none text-white" id="texto">Ubicación</a>
-                        </li>
-                        <li class="mb-2">
-                        <a href="#" class="text-decoration-none text-white" id="texto">Compra online</a>
-                        </li>
-                        <li class="mb-2">
-                        <a href="#" class="text-decoration-none text-white" id="texto">Lista de juegos de mesa</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-6 col-lg-2 mb-3">
-                    <h5>Ayuda</h5>
-                    <ul class="list-unstyled mt-4">
-                        <li class="mb-2">
-                        <a href="#" class="text-decoration-none text-white" id="texto">Preguntas frecuentes</a>
-                        </li>
-                        <li class="mb-2">
-                        <a href="#" class="text-decoration-none text-white" id="texto">Cómo comprar un juego</a>
-                        </li>
-                        <li class="mb-2">
-                        <a href="#" class="text-decoration-none text-white" id="texto">Ticket socio</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-6 col-lg-2 mb-3">
-                    <h5>Comunidad</h5>
-                    <ul class="list-unstyled mt-4">
-                        <li class="mb-2">
-                        <a href="#" class="text-decoration-none text-white" id="texto">Blog</a></li>
-                        <li class="mb-2">
-                        <a href="#" class="text-decoration-none text-white" id="texto">Sorteos</a>
-                        </li>
-                        <li class="mb-2">
-                        <a href="#" class="text-decoration-none text-white" id="texto">Juegos de temporada</a>
-                        </li>
-                        <li class="mb-2">
-                        <a href="#" class="text-decoration-none text-white" id="texto">Stack Overflow</a>
-                        </li>
-                    </ul>
-                </div> --}}
             </div>
         </div>
     </footer>
