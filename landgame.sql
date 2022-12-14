@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-12-2022 a las 21:13:17
+-- Tiempo de generación: 14-12-2022 a las 21:20:06
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 7.4.30
 
@@ -547,7 +547,7 @@ INSERT INTO `users` (`id`, `nombre`, `apellidos`, `email`, `email_verified_at`, 
 (2, 'Julio', 'Muñoz Chozas', 'julio@gmail.com', NULL, 'julio94', '$2y$10$7Xk4STa1vh1bkMxY4OoBAOoePGigI1SV7oo4U0FvgVHHCIzJ/NhdG', 3, 0, 0, NULL, NULL, '2022-12-14 17:16:42'),
 (3, 'Adrián', 'Reyes López', 'adrian@gmail.com', NULL, 'adri65', '$2y$10$KB78Kh4HbhR36Dj/696CouJL45O4XaBofIQO5Qt3kSD11qZN2Qoyi', 2, 0, 0, NULL, NULL, '2022-12-14 16:44:57'),
 (4, 'Laura', 'Gómez Sánchez', 'lausanchez@gmail.com', NULL, 'lau96', '$2y$10$q0yEoD02KUZ05FKlcPEfiuc4CuePTZCXwjIBcE/BfEt8QhFEzazWW', 2, 0, 0, NULL, NULL, NULL),
-(5, 'Guillermo', 'Álvarez Chozas', 'guilleal@gmail.com', NULL, 'guillalv43', '$2y$10$bA95oZpm.aCTr1BDXmZjdeHUZQOXvv.h3W209vZ5.by3liU0rpEYe', 4, 1, 0, NULL, NULL, '2022-12-14 17:34:21'),
+(5, 'Guillermo', 'Álvarez Chozas', 'guilleal@gmail.com', NULL, 'guillalv43', '$2y$10$bA95oZpm.aCTr1BDXmZjdeHUZQOXvv.h3W209vZ5.by3liU0rpEYe', 4, 0, 0, NULL, NULL, '2022-12-14 20:19:46'),
 (6, 'Francisco', 'Jimenez Lara', 'franjila@gmail.com', NULL, 'franji1992', '$2y$10$WfCPceMK.rfguJLMIwTdteoXH8s6UXWI5t.vdJq/P9i/8K5XLqmci', 4, 0, 0, NULL, NULL, '2022-12-14 17:15:14'),
 (7, 'Paula', 'García Gutiérrez', 'paulagarcia@gmail.com', NULL, 'paula76', '$2y$10$/HxwarCL5l0a9Bj2fmnV/eCPAqrjti558pKWjsLbgMiLljByUb2yC', 3, 0, 0, NULL, NULL, NULL),
 (8, 'Félix', 'Reyes Fernández', 'felixreyes@gmail.com', NULL, 'felixreyes', '$2y$10$gUgGE6E.B.FQRoTnuzWnf.2cCl7BkNiStBSlJHQ8JytwAst./JGKW', 4, 0, 0, NULL, NULL, '2022-12-14 17:33:55');
