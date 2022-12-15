@@ -63,14 +63,17 @@ Header set Access-Control-Allow-Origin "*"
 Header set Access-Control-Allow-Methods "GET,PUT,POST,DELETE,OPTIONS"
 Header set Access-Control-Allow-Headers "Content-Type, Authorization"
 
-2º) composer require paragonie/random_compat*
+2º) composer require paragonie/random_compat:*
 
-3º) composer require laravel/passport
+3º) composer require laravel/passport "~9.0";
 
-4º) php artisan passport:install
+4º) En el config/app.php, añadir Laravel\Passport\PassportServiceProvider::class,
+en providers si no lo tenemos.
 
-5º) php artisan passport:client --personal (con el nombre Landgame)
+5º) php artisan passport:install
 
-6º) composer require lcobucci/jwt
+6º) php artisan passport:client --personal (con el nombre Landgame)
 
-7º) php artisan serve
+7º) composer require lcobucci/jwt
+
+8º) php artisan serve (si no teníamos ejecutada la aplicación antes)
