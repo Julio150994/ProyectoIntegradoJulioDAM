@@ -5,7 +5,7 @@ directorio de este proyecto (ejecutar esto primero)
 
 2º) Copiar el .env.example y nombramos esa copia como .env
 
-3º) Poner nombre de Base de Datos en archivo .env como landgame
+3º) Poner nombre de aplicación landgame, y nombre de Base de Datos en archivo .env como landgame
 
 4º) Poner estos datos en el mismo archivo .env que hemos copiado de .env.example
     4.1) Cambiar los datos de email por estos:

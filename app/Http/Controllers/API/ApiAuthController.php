@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 //use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -81,6 +82,13 @@ class ApiAuthController extends Controller {
                 if(Auth::attempt(['username' => request('username'), 'password' => request('password')])) {
                     $usuario = Auth::user();
 
+                    // Evitamos el inicio de sesión de un solo usuario múltiples veces
+                    $data['is_logged'] = 1;
+
+                    DB::table('users')->where('id', auth()->id())->update([
+                        'is_logged' => $data['is_logged']
+                    ]);
+
                     /* Mostramos los datos del cliente de manera ordenada */
                     $tokenLandgame['id'] = $usuario->id;
                     $tokenLandgame['nombre'] = $usuario->nombre;
@@ -89,6 +97,9 @@ class ApiAuthController extends Controller {
                     $tokenLandgame['username'] = $usuario->username;
                     $tokenLandgame['password'] = $usuario->password;
                     $tokenLandgame['role_id'] = $usuario->role_id;
+                    $tokenLandgame['is_logged'] = $usuario->is_logged;
+
+                    // Establecemos el inicio de sesión
 
                     $nombreUsuario = $tokenLandgame['username'];
 
@@ -136,8 +147,15 @@ class ApiAuthController extends Controller {
 
     /** --------- Para cerrar sesión de los clientes ------------- */
     public function logout() {
-        $administrador = User::find(auth()->id());
-        $username = $administrador->username;
+        $usuario = User::find(auth()->id());
+        $username = $usuario->username;
+
+        // Evitamos cerrar sesión con un solo usuario múltiples veces
+        $data['is_logged'] = 0;
+
+        DB::table('users')->where('id', auth()->id())->update([
+            'is_logged' => $data['is_logged']
+        ]);
 
         return response()->json(['success' => $username.' ha cerrado sesión éxitosamente'], $this->apiStatus[0]);
     }
