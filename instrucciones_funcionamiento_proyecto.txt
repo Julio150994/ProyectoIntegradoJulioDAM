@@ -7,11 +7,28 @@ directorio de este proyecto
 
 3º) Poner nombre de Base de Datos en archivo .env como landgame
 
-4º) php artisan key:generate
+4º) Poner estos datos en el archivo .env que hemos copiado de .env.example
+    4.1) Cambiar los datos de email por estos:
+        MAIL_MAILER=smtp
+        MAIL_HOST=smtp.mailtrap.io
+        MAIL_PORT=587
+        MAIL_USERNAME=munoz.chjul20@cadiz.salesianos.edu
+        MAIL_PASSWORD=secret94@
+        MAIL_ENCRYPTION=tls
+        MAIL_FROM_ADDRESS=juliolaravel@gmail.com
+        MAIL_FROM_NAME="${APP_NAME}"
 
-5º) php artisan migrate:fresh --seed
+    4.2) Añadir los datos de PayPal abajo del todo en el archivo .env:
+        PAYPAL_CLIENT_ID=AZvN1GcB42pI9neFzkOqHwVVKlm7yXuAlEI0dpBaSL_vPoTLgW9FE_N4KTP-ulxEjbTQwmizK4meZgAn
+        PAYPAL_SECRET=EMQdcVdJ3WsiQ2OmwVJZvOdeHeG8oj7FZAUSSwacVDH9pEn83nudXwEL9dvzED3nTm4uMlSrnIIH7bcq
+        PAYPAL_MODE=sandbox
+        JWT_SECRET=O4s5o3f84EYt2z4Py15Z1Jkc8sSJG0YimjA8xdOYKccQOG7iPI95KufcxucOyUEp
 
-6º) php artisan serve
+5º) php artisan key:generate
+
+6º) php artisan migrate:fresh --seed
+
+7º) php artisan serve
 
 
 FUNCIONAMIENTO PARA API REST:
