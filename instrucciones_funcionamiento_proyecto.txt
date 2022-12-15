@@ -1,5 +1,5 @@
-INSTRUCCIONES DE EJECUCIÓN PARA LA APLICACIÓN DE LARAVEL: eejcutarlos en el
-directorio de este proyecto
+INSTRUCCIONES DE EJECUCIÓN PARA LA APLICACIÓN DE LARAVEL:ejecutarlos en el
+directorio de este proyecto (ejecutar esto primero)
 
 1º) composer install
 
