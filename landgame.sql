@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-12-2022 a las 20:43:49
+-- Tiempo de generación: 15-12-2022 a las 21:27:08
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 7.4.30
 
@@ -60,8 +60,8 @@ INSERT INTO `detalle_pedidos` (`id`, `cantidad`, `precioUnitario`, `pedido_id`, 
 (20, 3, '54.75', 23, 3, 0, NULL, NULL, NULL),
 (21, 2, '50.98', 23, 2, 0, NULL, NULL, NULL),
 (22, 1, '8.19', 24, 4, 0, NULL, NULL, NULL),
-(23, 2, '50.98', 25, 2, 0, NULL, '2022-12-15 18:32:38', '2022-12-15 18:32:38'),
-(24, 2, '69.12', 25, 1, 0, NULL, '2022-12-15 18:32:39', '2022-12-15 18:32:39');
+(26, 2, '50.98', 26, 2, 0, NULL, '2022-12-15 20:26:24', '2022-12-15 20:26:24'),
+(27, 2, '36.50', 26, 3, 0, NULL, '2022-12-15 20:26:26', '2022-12-15 20:26:26');
 
 -- --------------------------------------------------------
 
@@ -317,9 +317,11 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 ('42eafd9e13baf76ef7b9bca53b9dd926388bff978d2dc9ec1cd73c2046fccd2fdff1eb76d6406205', 8, 3, 'Landgame', '[]', 0, '2022-12-15 16:36:45', '2022-12-15 16:36:45', '2023-12-15 17:36:45'),
 ('44155b54a40175b8f544b0d9689a48c781bd80f7e235464efd6118d8b49f3eeb018d23306ad123b1', 8, 3, 'Landgame', '[]', 0, '2022-12-15 17:29:02', '2022-12-15 17:29:02', '2023-12-15 18:29:02'),
 ('48041d3cf6d66b0c00553f12c1592261047bcdcec0ce079c99967a794c27f63cb1f27b0b2c7a7b39', 8, 3, 'Landgame', '[]', 0, '2022-12-15 17:03:59', '2022-12-15 17:03:59', '2023-12-15 18:03:59'),
+('4ac0c482ed4ba5b25c0ac3fb17c18a3576ddd83db7318cb268084bf843fed19662a1db0f7d5c87c5', 8, 3, 'Landgame', '[]', 0, '2022-12-15 19:45:05', '2022-12-15 19:45:05', '2023-12-15 20:45:05'),
 ('588c8652b1ef0e0705c0c8d57e6cbdad746bff39fb17b276b325a8df3bf4c2574b5079c5ef49a7f3', 8, 3, 'Landgame', '[]', 0, '2022-12-15 16:58:20', '2022-12-15 16:58:20', '2023-12-15 17:58:20'),
 ('7f6589df60d910266a8080f27b204981bb52dc5b8f585bca053b437ce05281b5cf4441a606866230', 8, 3, 'Landgame', '[]', 0, '2022-12-15 16:45:10', '2022-12-15 16:45:10', '2023-12-15 17:45:10'),
 ('c5a23849c9b11e325c17fd7a560dcfb39c376767c5315b73798310a3ed3048f4cedebb7e135de686', 8, 3, 'Landgame', '[]', 0, '2022-12-15 17:17:29', '2022-12-15 17:17:29', '2023-12-15 18:17:29'),
+('e1e3eb34b8c587b8bc18f25d27f75f985701245c29cd17ee5e1eeea1c75a6731e4d1f225121be40e', 8, 3, 'Landgame', '[]', 0, '2022-12-15 20:25:43', '2022-12-15 20:25:43', '2023-12-15 21:25:43'),
 ('fd01f34a3fe8b143fada7e39ddefa645a910525cbd5d6dffa36015037186d3d817aea61a8de5916a', 8, 3, 'Landgame', '[]', 0, '2022-12-15 16:34:32', '2022-12-15 16:34:32', '2023-12-15 17:34:32');
 
 -- --------------------------------------------------------
@@ -444,7 +446,7 @@ INSERT INTO `pedidos` (`id`, `precioTotal`, `fechaCompra`, `cliente_id`, `estado
 (22, '75.55', '2022-12-15', 8, 'Pagado', 0, NULL, NULL, NULL),
 (23, '105.73', '2022-12-15', 8, 'Pagado', 0, NULL, NULL, NULL),
 (24, '8.19', '2022-12-15', 8, 'Pagado', 0, NULL, NULL, NULL),
-(25, '120.10', '2022-12-15', 8, 'Enviado', 0, NULL, '2022-12-15 18:32:38', '2022-12-15 18:32:38');
+(26, '87.48', '2022-12-15', 8, 'Pagado', 0, NULL, '2022-12-15 20:26:23', '2022-12-15 20:26:23');
 
 -- --------------------------------------------------------
 
@@ -505,7 +507,7 @@ INSERT INTO `users` (`id`, `nombre`, `apellidos`, `email`, `email_verified_at`, 
 (5, 'Guillermo', 'Álvarez Chozas', 'guilleal@gmail.com', NULL, 'guillalv43', '$2y$10$nnOWaRJjr4/AFGw5ntXySOlcXick44s7NILgUU3.DD/H8WbkPLSlm', 4, 0, 0, NULL, NULL, NULL),
 (6, 'Francisco', 'Jimenez Lara', 'franjila@gmail.com', NULL, 'franji1992', '$2y$10$UjyqB7qohqX5zUu6MgHQl.FD7YhGSz22DO.5YmZMSUUAvafDxQuKK', 4, 0, 0, NULL, NULL, NULL),
 (7, 'Paula', 'García Gutiérrez', 'paulagarcia@gmail.com', NULL, 'paula76', '$2y$10$2Gu5YENLTKi97Aqvk6qPe.FXdpvzwhsSJD5jHuX0CT8oD94bMO7kO', 3, 0, 0, NULL, NULL, NULL),
-(8, 'Félix', 'Reyes Fernández', 'felixreyes@gmail.com', NULL, 'felixreyes', '$2y$10$2.yw99WK7xXm.crcv9kx1ujYIkLm1CRJEbwQvBJzIyn4ehQwgPMuu', 4, 0, 0, NULL, NULL, '2022-12-15 18:28:39');
+(8, 'Félix', 'Reyes Fernández', 'felixreyes@gmail.com', NULL, 'felixreyes', '$2y$10$2.yw99WK7xXm.crcv9kx1ujYIkLm1CRJEbwQvBJzIyn4ehQwgPMuu', 4, 1, 0, NULL, NULL, '2022-12-15 18:28:39');
 
 --
 -- Índices para tablas volcadas
@@ -636,7 +638,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `detalle_pedidos`
 --
 ALTER TABLE `detalle_pedidos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de la tabla `direcciones_envios`
@@ -690,7 +692,7 @@ ALTER TABLE `oauth_personal_access_clients`
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
