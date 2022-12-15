@@ -1,9 +1,29 @@
-1º) composer install --------> instalación de carpeta vendor
+INSTRUCCIONES DE EJECUCIÓN PARA LA APLICACIÓN DE LARAVEL: eejcutarlos en el
+directorio de este proyecto
 
-2º) Instalar archivo .env
+1º) composer install
 
-3º) Ejecutar: php artisan migrate:fresh --seed
+2º) Copiar el .env.example y nombramos esa copia como .env
 
-4º) Coger los datos del script de base de datos con insert
+3º) Poner nombre de Base de Datos en archivo .env como landgame
 
-5º) php artisan serve
+4º) php artisan key:generate
+
+5º) php artisan migrate:fresh --seed
+
+6º) php artisan serve
+
+
+FUNCIONAMIENTO PARA API REST:
+
+1º) composer require paragonie/random_compat*
+
+2º) composer require laravel/passport
+
+3º) php artisan passport:install
+
+4º) php artisan passport:client --personal (con el nombre Landgame)
+
+5º) composer require lcobucci/jwt
+
+6º) php artisan serve
