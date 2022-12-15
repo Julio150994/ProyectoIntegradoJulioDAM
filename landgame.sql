@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-12-2022 a las 21:20:06
+-- Tiempo de generación: 15-12-2022 a las 16:00:57
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 7.4.30
 
@@ -308,6 +308,7 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 ('006588dfbaca43429b2b2d5b4f53cfecfb46faa5e002c7d4350db91dbc89e9298e45e712708c3a30', 8, 4, 'Landgame', '[]', 0, '2022-12-12 18:48:50', '2022-12-12 18:48:50', '2023-12-12 19:48:50'),
 ('03ec1ffb321e0a2b9fa3e64abbb4aa9cf4b40e781c4debba6c9733bd026e78f6659e6cab408e91ec', 8, 4, 'Landgame', '[]', 0, '2022-12-11 20:05:41', '2022-12-11 20:05:41', '2023-12-11 21:05:41'),
 ('0425d1a9f7169dc62c195fe723c66c524f9ddb4331ab58a6e89ef5206257213cf777351bc7851b24', 8, 4, 'Landgame', '[]', 0, '2022-12-11 22:43:13', '2022-12-11 22:43:13', '2023-12-11 23:43:13'),
+('0431d6fc4794ab98a9eed823b8785ac238db35313ed235bc5e2cf932b4087631622cf4f7d21cf29d', 8, 4, 'Landgame', '[]', 0, '2022-12-14 22:47:04', '2022-12-14 22:47:04', '2023-12-14 23:47:04'),
 ('09974a574f580571ee9428d666e5b34539622d7a946fdd25f2987f7b8a8928f43a3dc678c869b450', 8, 4, 'Landgame', '[]', 0, '2022-12-13 16:17:44', '2022-12-13 16:17:44', '2023-12-13 17:17:44'),
 ('0a288ff394f1f5b4f85a40499bc66d95e5bf20707aa24cda3565c0f6361468b20f190d4ae55c69cf', 8, 4, 'Landgame', '[]', 0, '2022-12-11 20:13:44', '2022-12-11 20:13:44', '2023-12-11 21:13:44'),
 ('0d4bd5a8f3af1e5a9d69d6e5412c48be14e5a4228ec01aabadab1cafd3ae134c8ef40a8dcc21b48d', 8, 4, 'Landgame', '[]', 0, '2022-12-11 22:28:35', '2022-12-11 22:28:35', '2023-12-11 23:28:35'),
@@ -331,6 +332,8 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 ('4d06fe7637dc407f972bd4ab5ba655e6a2a85789f61794b211fcf9083977e4d9bf970cd7a0e48c02', 8, 4, 'Landgame', '[]', 0, '2022-12-11 11:56:25', '2022-12-11 11:56:25', '2023-12-11 12:56:25'),
 ('548f22936c934d59e9186f17a644ac19e87f455b463aac8e5d1264f84582516fdd195bcd9f510bad', 8, 4, 'Landgame', '[]', 0, '2022-12-11 22:11:26', '2022-12-11 22:11:26', '2023-12-11 23:11:26'),
 ('565e6e3a962c7eae98fc641efe383d40e4b5da4d7efecda62919caff8ee46a87405c5df3ae66530e', 8, 4, 'Landgame', '[]', 0, '2022-12-13 16:58:02', '2022-12-13 16:58:02', '2023-12-13 17:58:02'),
+('56fb2728913ef1929268f12165aa2a7f6cdde593e7cb64629b759164325c2c9651654b6d6a208a0e', 8, 4, 'Landgame', '[]', 0, '2022-12-14 22:49:31', '2022-12-14 22:49:31', '2023-12-14 23:49:31'),
+('5cfee0000c3fbafd4c34b08c6139cf6ce292f18314c8f9fd3037f0023c769bc205356ae18747aa66', 8, 4, 'Landgame', '[]', 0, '2022-12-14 22:44:20', '2022-12-14 22:44:20', '2023-12-14 23:44:20'),
 ('6467448919b14b5854c5c748725d47aa66449c7992ece5003fac2b6acdaa3a1a59dff3be715d652b', 1, 4, 'Landgame', '[]', 0, '2022-12-11 14:14:56', '2022-12-11 14:14:56', '2023-12-11 15:14:56'),
 ('72d20b00f0c9690cf22354a7f3300c42552d916f13379cd79009aae4b805fe60892b61b5b979cbad', 1, 4, 'Landgame', '[]', 0, '2022-12-11 14:16:12', '2022-12-11 14:16:12', '2023-12-11 15:16:12'),
 ('733b82921ae1b16c30346ade87541d922e9d4b74e3f4eeb96d66efbe926ed4d089f5181f1c821a27', 8, 4, 'Landgame', '[]', 0, '2022-12-13 16:18:34', '2022-12-13 16:18:34', '2023-12-13 17:18:34'),
@@ -351,12 +354,14 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 ('a78e675b439a3b046aca89bed79ff5c7f5e39fc63e67568686b9c3c6f977572ab951bf906ca8fdfc', 8, 4, 'Landgame', '[]', 0, '2022-12-11 20:31:57', '2022-12-11 20:31:57', '2023-12-11 21:31:57'),
 ('a950f62a9f1b3f17e5180d9ac7127e32b90b0674fa33062fbeb4ae4bfce7b7f86a9cca838190991c', 8, 4, 'Landgame', '[]', 0, '2022-12-11 22:23:12', '2022-12-11 22:23:12', '2023-12-11 23:23:12'),
 ('b0e3f8f40ab694323c3e3c6e85cca3925586a7791630305f8877334bfa1a500773bc37bf976b4aca', 8, 4, 'Landgame', '[]', 0, '2022-12-11 12:26:50', '2022-12-11 12:26:50', '2023-12-11 13:26:50'),
+('b39b7adff28ae11780ecfbefb2ab5bd05ffa3b427ad8777fa0667628f93aa33cd9301f2ca2d38aa3', 8, 4, 'Landgame', '[]', 0, '2022-12-14 22:50:33', '2022-12-14 22:50:33', '2023-12-14 23:50:33'),
 ('babc20ead0468db5094491dbe5786ace04f4f6c2e17c137c3d161c0515f3c3a8d531e9724484505b', 8, 4, 'Landgame', '[]', 0, '2022-12-11 12:13:47', '2022-12-11 12:13:47', '2023-12-11 13:13:47'),
 ('bb8f2a1cd47356d18b5dd49b1b279589acf912b44d54159d880b4a5efbc75aea75abb609c538021b', 8, 4, 'Landgame', '[]', 0, '2022-12-11 11:35:54', '2022-12-11 11:35:54', '2023-12-11 12:35:54'),
 ('c30892772a87e7e50137f8399ed81097310b2d84c7c260e371debd1f8fd942660a65762859f23b30', 8, 4, 'Landgame', '[]', 0, '2022-12-11 23:56:03', '2022-12-11 23:56:03', '2023-12-12 00:56:03'),
 ('c657c669c852e2c5c7c68d9b13d74018aefbb4b0f6a4a10f423e9531e3e754f32ac89d250203545b', 8, 4, 'Landgame', '[]', 0, '2022-12-11 20:07:25', '2022-12-11 20:07:25', '2023-12-11 21:07:25'),
 ('d330d512af77836f8ca5cd63886b5379f5d6a6d7fff6a35054e601dd54b1de55db674a082ad882cb', 8, 4, 'Landgame', '[]', 0, '2022-12-12 00:03:33', '2022-12-12 00:03:33', '2023-12-12 01:03:33'),
 ('d51524bd012070c67f23f4907d552bdec5a17efec4cf39a2416c0f367ac39897d9af31d00c2c192f', 1, 4, 'Landgame', '[]', 0, '2022-12-11 13:47:56', '2022-12-11 13:47:56', '2023-12-11 14:47:56'),
+('d5e461df58788046a913ad4bd6b1e39ce7aad65842aa8ad41cef8675997ff9dba54df210e5166171', 8, 4, 'Landgame', '[]', 0, '2022-12-14 22:48:34', '2022-12-14 22:48:34', '2023-12-14 23:48:34'),
 ('dccf0dd66549042ee50049b4c25d9d0510b4d274b2891b23bf446fe0cce71abc94d31effdb3b9241', 8, 4, 'Landgame', '[]', 0, '2022-12-11 20:40:20', '2022-12-11 20:40:20', '2023-12-11 21:40:20'),
 ('dfb9c2dd00537f0541f38c5a6ffbb33951e9a8dc8cae8b05118e57e9b601de2ff416103cb31b8b7b', 8, 4, 'Landgame', '[]', 0, '2022-12-11 20:42:42', '2022-12-11 20:42:42', '2023-12-11 21:42:42'),
 ('e46b45165e8f381b10b78f140a7959bd3431c655d9a10982b66def577bb8f122231b8c9fbaf562d7', 8, 4, 'Landgame', '[]', 0, '2022-12-11 22:08:55', '2022-12-11 22:08:55', '2023-12-11 23:08:55'),
@@ -543,7 +548,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `nombre`, `apellidos`, `email`, `email_verified_at`, `username`, `password`, `role_id`, `is_logged`, `deleted`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'Admin', 'admin@admin.com', NULL, 'admin', '$2y$10$XtPQyAK29bKb6NpuVakAVe96nCB3cwyFG0BRG6S0hRBVaymQk8laC', 1, 0, 0, NULL, NULL, '2022-12-14 17:22:12'),
+(1, 'Admin', 'Admin', 'admin@admin.com', NULL, 'admin', '$2y$10$XtPQyAK29bKb6NpuVakAVe96nCB3cwyFG0BRG6S0hRBVaymQk8laC', 1, 0, 0, NULL, NULL, '2022-12-14 22:41:29'),
 (2, 'Julio', 'Muñoz Chozas', 'julio@gmail.com', NULL, 'julio94', '$2y$10$7Xk4STa1vh1bkMxY4OoBAOoePGigI1SV7oo4U0FvgVHHCIzJ/NhdG', 3, 0, 0, NULL, NULL, '2022-12-14 17:16:42'),
 (3, 'Adrián', 'Reyes López', 'adrian@gmail.com', NULL, 'adri65', '$2y$10$KB78Kh4HbhR36Dj/696CouJL45O4XaBofIQO5Qt3kSD11qZN2Qoyi', 2, 0, 0, NULL, NULL, '2022-12-14 16:44:57'),
 (4, 'Laura', 'Gómez Sánchez', 'lausanchez@gmail.com', NULL, 'lau96', '$2y$10$q0yEoD02KUZ05FKlcPEfiuc4CuePTZCXwjIBcE/BfEt8QhFEzazWW', 2, 0, 0, NULL, NULL, NULL),
