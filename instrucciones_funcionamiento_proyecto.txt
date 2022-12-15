@@ -33,7 +33,7 @@ directorio de este proyecto
 8º) php artisan serve
 
 
-FUNCIONAMIENTO PARA API REST:
+FUNCIONAMIENTO PARA API REST (ES LO SIGUIENTE A EJECUTAR):
 
 1º) composer require paragonie/random_compat*
 
