@@ -32,6 +32,8 @@ directorio de este proyecto (ejecutar esto primero)
 
 8º) php artisan serve
 
+9º) En otra terminal de VSCODE, introducir el comando npm install (para el node_modules)
+
 
 FUNCIONAMIENTO PARA API REST (ES LO SIGUIENTE A EJECUTAR):
 
