@@ -35,14 +35,42 @@ directorio de este proyecto
 
 FUNCIONAMIENTO PARA API REST (ES LO SIGUIENTE A EJECUTAR):
 
-1º) composer require paragonie/random_compat*
+1º) Creamos el archivo .htaccess; y ponemos estos caracteres:
 
-2º) composer require laravel/passport
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
 
-3º) php artisan passport:install
+    RewriteEngine On
 
-4º) php artisan passport:client --personal (con el nombre Landgame)
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
-5º) composer require lcobucci/jwt
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
 
-6º) php artisan serve
+    # Handle Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+</IfModule>
+
+Header set Access-Control-Allow-Origin "*"
+Header set Access-Control-Allow-Methods "GET,PUT,POST,DELETE,OPTIONS"
+Header set Access-Control-Allow-Headers "Content-Type, Authorization"
+
+2º) composer require paragonie/random_compat*
+
+3º) composer require laravel/passport
+
+4º) php artisan passport:install
+
+5º) php artisan passport:client --personal (con el nombre Landgame)
+
+6º) composer require lcobucci/jwt
+
+7º) php artisan serve
