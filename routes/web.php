@@ -64,6 +64,12 @@ Route::middleware(["auth", "administrador"])->group(function () {
     Route::post('/admin/empresas-reparto/update/{id}', 'EmpresasRepartoController@update')->name('empresas_reparto.update');
     Route::get('/admin/empresas-reparto/delete/{id}', 'EmpresasRepartoController@destroy')->name('empresas_reparto.destroy');
 
+    Route::get('/pedidos', 'PedidoController@indexPedidosAdmin')->name('admin.pedidos');
+    Route::get('/pedidos/verPedido/{id}', 'PedidoController@verPedidoAdmin')->name('admin.detalles_pedido');
+    Route::get('/pedidos/modificar/{id}', 'PedidoController@modificarPedidoAdmin')->name('admin.modificar_pedido');
+    Route::post('/pedidos/update/{id}', 'PedidoController@updateAdmin')->name('admin.update');
+
+
     /**-----------Para listar solamente los pedidos------------------- */
     Route::get('/admin/pedidos', 'PedidoController@indexAdmin')->name('pedidos.indexAdmin');
 });

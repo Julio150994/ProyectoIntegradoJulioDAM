@@ -17,7 +17,7 @@
                 <span class="text-white mt-2" id="logo_titulo">Land</span><span class="text-primary mt-2" id="logo_titulo">game</span>
             </a>
         </span>
-        
+
         <div class="align-content-end" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 {{-- Menú desplegable para el logout --}}
@@ -30,11 +30,11 @@
                             <a class="dropdown-item text-white" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
-                                
+
                                 <span class="fas fa-solid fa-right-from-bracket mr-2"></span>
                                 {{ __('Logout') }}
                             </a>
-            
+
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
                             </form>
@@ -104,6 +104,14 @@
                         </div>
                     </li>
                     <li class="link_admin">
+                        <div class="option text-white">
+                            <a href="{{ route('admin.pedidos') }}" data-bs-toggle="collapse" class="nav-link px-0 align-middle" id="link_admin">
+                                <span class="fas fa-sharp fa-solid fa-credit-card text-white mt-3 mb-4"></span>
+                                <span class="ms-1 d-none d-sm-inline text-white ml-3">Pedidos</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="link_admin">
                         {{-- Botón de menú desplegable --}}
                         <div class="option dropright text-white">
                             <span class="fas fa-solid fa-gear text-white mt-3 mb-4"></span>
@@ -157,6 +165,9 @@
                 @yield('juegos_mesa')
                 {{-- Listado de empresas de reparto --}}
                 @yield('empresas')
+
+                {{-- Para que el administrador pueda gestionar los pedidos --}}
+                @yield('pedidos_admin')
             @else
                 @if(Auth::user()->role_id == 2)
                     {{-- Para las vistas del contable --}}
