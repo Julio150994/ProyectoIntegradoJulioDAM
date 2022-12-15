@@ -18,11 +18,11 @@ class JuegoController extends Controller {
 
     public function index() {
         // Mostramos los juegos de mesa en orden descendente con sus imágenes
-        
+
         $juegos = Juego::orderBy('id', 'DESC')->paginate(5);// paginamos cada 5 juegos
-        
+
         $listaJuegos = ImagenesJuego::orderBy('id', 'ASC')->get();
-        
+
         return view('juegos.index', compact('juegos', 'listaJuegos'));
     }
 
@@ -53,7 +53,7 @@ class JuegoController extends Controller {
             ],
             ['nombre.required' => __("Debe introducir un nombre de cliente")],
             ['nombre.unique' => __("Este nombre de juego ya existe en la tienda")],
-            
+
             ['descripcion.required' => __("Debe introducir una descripción para el juego de mesa")],
             ['descripcion.max' => __("La descripción debe tener como máximo 100 caracteres")],
 
@@ -85,7 +85,7 @@ class JuegoController extends Controller {
 
                 $urlImagenes[]['url'] = $rutaUrl.$nombreImagen;
                 $imagen = $rutaUrl.$nombreImagen;
-            
+
                 DB::table('imagenes_juegos')->insert([
                     'url' => $imagen,
                     'juego_id' => $juegoId,
@@ -145,7 +145,7 @@ class JuegoController extends Controller {
                 ],
                 ['nombre.required' => __("Debe introducir un nombre de cliente")],
                 ['nombre.unique' => __("Este nombre de juego ya existe en la tienda")],
-                
+
                 ['descripcion.required' => __("Debe introducir la descripción para el juego de mesa")],
                 ['descripcion.max' => __("La descripción debe tener como máximo 100 caracteres")],
 
@@ -169,9 +169,9 @@ class JuegoController extends Controller {
             $urlImagenes = [];
 
             if ($request->hasFile('url')) {// si es carpeta
-                
+
                 $imagenes = $request->file('url');// si es fichero
-                
+
                 foreach ($imagenes as $imagen) {
                     // tiempo de la imágen (opcional): time().'_'.
                     $nombreImagen = $imagen->getClientOriginalName();
@@ -186,7 +186,7 @@ class JuegoController extends Controller {
 
                     $urlImagenes[]['url'] = $rutaUrl.$nombreImagen;
                     $imagen = $rutaUrl.$nombreImagen;
-                
+
                     // Guardamos la url de las imágenes editadas en imagenes_juegos
                     DB::table('imagenes_juegos')->update([
                         'url' => $imagen,
@@ -197,11 +197,9 @@ class JuegoController extends Controller {
                 }
             }
         }
-        
-        $nombreJuego = $data['nombre'];
 
         return redirect()->route('juegos.index')
-            ->with('mensaje_juego_mesa', ['primary', __("Juego de mesa editado como $nombreJuego correctamente")]);
+            ->with('mensaje_juego_mesa', ['primary', __("Juego de mesa editado correctamente")]);
     }
 
     /**
@@ -212,7 +210,7 @@ class JuegoController extends Controller {
      */
     public function remove(Request $request, $id) {
         // Eliminamos el juego de mesa aplicando Soft Delete
-        
+
         $juegos = Juego::find($id);
 
         // Seleccionamos las imágenes a eliminar
@@ -232,12 +230,12 @@ class JuegoController extends Controller {
                  // tiempo de la imágen (opcional): time().'_'.
                  $nombreImagen = $imagen->getClientOriginalName();
                  $rutaUrl = 'images/juegos_mesa/';
-    
+
                 // Comprobamos que existen la/s imagen/es para eliminarlas
                 if ($rutaUrl::exists($rutaUrl.$nombreImagen)) {
                     $rutaUrl::delete($rutaUrl.$nombreImagen);
                 }
-            }   
+            }
         }
 
         // Eliminamos los datos de la tabla juegos con la función destroy() de Laravel
@@ -258,21 +256,21 @@ class JuegoController extends Controller {
     public function removeImages($id) {
         /**
          * Eliminamos las imágenes de un juego de mesa aplicando Soft Delete
-         * (sin aplicarlo de momento) 
+         * (sin aplicarlo de momento)
          */
-        
+
         ImagenesJuego::find($id);
 
         // Eliminamos la imágen de nuestra carpeta de imágenes (en public)
         $imagenJuego = ImagenesJuego::select('url')->where('id', '=', $id)->get();
         $formato = $imagenJuego->implode('url', ',');
-        
+
         Storage::delete($formato);
         // Proceso de eliminar imágenes con la función destroy() de Laravel
         ImagenesJuego::destroy($id);
-        
+
         return redirect()->route('juegos.edit')
             ->with('imagen_eliminada', ['danger', __("Imágen(es) eliminada(s) correctamente")]);
     }
-    
+
 }
