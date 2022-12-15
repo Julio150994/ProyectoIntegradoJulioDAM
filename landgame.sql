@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-12-2022 a las 20:32:11
+-- Tiempo de generación: 15-12-2022 a las 20:43:49
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 7.4.30
 
@@ -498,14 +498,14 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `nombre`, `apellidos`, `email`, `email_verified_at`, `username`, `password`, `role_id`, `is_logged`, `deleted`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'Admin', 'admin@admin.com', NULL, 'admin', '$2y$10$V7HU.oyMZrs4ydcBNz04QO7nFWv.4dK/Xt1xfE5DSCTZlFa6sgV0a', 1, 1, 0, NULL, NULL, '2022-12-15 18:54:50'),
+(1, 'Admin', 'Admin', 'admin@admin.com', NULL, 'admin', '$2y$10$V7HU.oyMZrs4ydcBNz04QO7nFWv.4dK/Xt1xfE5DSCTZlFa6sgV0a', 1, 0, 0, NULL, NULL, '2022-12-15 19:43:24'),
 (2, 'Julio', 'Muñoz Chozas', 'julio@gmail.com', NULL, 'julio94', '$2y$10$83t9EapB/.bIW7OnzSl/Ku0W2ViCslkieVFH9MBsU2vD1HpqRTadm', 3, 0, 0, NULL, NULL, '2022-12-15 18:38:43'),
 (3, 'Adrián', 'Reyes López', 'adrian@gmail.com', NULL, 'adri65', '$2y$10$H4cRtycBdYU7GT6I4ZLIKe/LAZzaL.lmzkq6VZYOnDKGxIM850/iK', 2, 0, 0, NULL, NULL, '2022-12-15 18:54:38'),
 (4, 'Laura', 'Gómez Sánchez', 'lausanchez@gmail.com', NULL, 'lau96', '$2y$10$MKkrHaUUxiM5m4rMkibWs.rORHXPfIFgPSXn5WQdyOgdePSlHxhPG', 2, 0, 0, NULL, NULL, NULL),
 (5, 'Guillermo', 'Álvarez Chozas', 'guilleal@gmail.com', NULL, 'guillalv43', '$2y$10$nnOWaRJjr4/AFGw5ntXySOlcXick44s7NILgUU3.DD/H8WbkPLSlm', 4, 0, 0, NULL, NULL, NULL),
 (6, 'Francisco', 'Jimenez Lara', 'franjila@gmail.com', NULL, 'franji1992', '$2y$10$UjyqB7qohqX5zUu6MgHQl.FD7YhGSz22DO.5YmZMSUUAvafDxQuKK', 4, 0, 0, NULL, NULL, NULL),
 (7, 'Paula', 'García Gutiérrez', 'paulagarcia@gmail.com', NULL, 'paula76', '$2y$10$2Gu5YENLTKi97Aqvk6qPe.FXdpvzwhsSJD5jHuX0CT8oD94bMO7kO', 3, 0, 0, NULL, NULL, NULL),
-(8, 'Félix', 'Reyes Fernández', 'felixreyes@gmail.com', NULL, 'felixreyes', '$2y$10$2.yw99WK7xXm.crcv9kx1ujYIkLm1CRJEbwQvBJzIyn4ehQwgPMuu', 4, 1, 0, NULL, NULL, '2022-12-15 18:28:39');
+(8, 'Félix', 'Reyes Fernández', 'felixreyes@gmail.com', NULL, 'felixreyes', '$2y$10$2.yw99WK7xXm.crcv9kx1ujYIkLm1CRJEbwQvBJzIyn4ehQwgPMuu', 4, 0, 0, NULL, NULL, '2022-12-15 18:28:39');
 
 --
 -- Índices para tablas volcadas
