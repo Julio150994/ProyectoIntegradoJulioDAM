@@ -146,7 +146,7 @@ class ApiAuthController extends Controller {
 
 
     /** --------- Para cerrar sesión de los clientes ------------- */
-    public function logout() {
+    public function logout(Request $data) {
         $usuario = User::find(auth()->id());
         $username = $usuario->username;
 
