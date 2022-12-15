@@ -33,6 +33,7 @@ export class LoginPage implements OnInit {
   listaUsuarios: any;
   users: any;
   roleId!: number;
+  isLogged!: number;
   credentialUsername!: string;
   credentialPassword!: string;
   usuarioEncontrado: any;
@@ -71,6 +72,7 @@ export class LoginPage implements OnInit {
           this.credentialUsername = this.users[indice].username;
           this.credentialPassword = this.users[indice].password;
           this.roleId = this.users[indice].role_id;
+          this.isLogged = this.users[indice].is_logged;
         }
       }
 
@@ -85,40 +87,48 @@ export class LoginPage implements OnInit {
         if (this.password !== this.contraseniaDesencriptada) {
 
           this.authService.setUsername(this.username);// para establecer el nombre de usuario actual
+          //this.authService.setIsLogged(this.username);
 
-          /** Validamos si el usuario que intenta iniciar sesión es administrador y/o cliente o no */
-          if (this.roleId == 4) {
+          /** Validamos que el usuario no haya iniciado sesión */
+          if (this.isLogged == 0) {
+              /** Validamos si el usuario que intenta iniciar sesión es administrador y/o cliente o no */
+              if (this.roleId == 4) {
 
-            await this.authService.login(this.username, this.password)
-            .then(async data => {
-              this.usuarios = data;
-              this.datosUsuarios = this.usuarios.success;
-              this.token = this.datosUsuarios.token;
-            });
+                await this.authService.login(this.username, this.password)
+                .then(async data => {
+                  this.usuarios = data;
+                  this.datosUsuarios = this.usuarios.success;
+                  this.token = this.datosUsuarios.token;
+                });
 
-            this.clienteLogueado(this.username);
-            //localStorage.setItem('token', this.token);
-            this.navCtrl.navigateForward('/juegos', this.dataUsername);
+                this.clienteLogueado(this.username);
+                //localStorage.setItem('token', this.token);
+                this.navCtrl.navigateForward('/juegos', this.dataUsername);
+              }
+              else if (this.roleId == 1) {
+                // El administrador si nos deja iniciar sesión
+
+                await this.authService.login(this.username, this.password)
+                .then(async data => {
+                  this.usuarios = data;
+                  this.datosUsuarios = this.usuarios.success;
+                  this.token = this.datosUsuarios.token;
+                });
+
+                this.adminLogueado(this.username);
+                this.navCtrl.navigateForward('/juegos', this.dataUsername);
+              }
+              else if (this.roleId == 2) {
+                this.mensajeAlertaContable(this.username);
+                this.navCtrl.navigateForward('/login');
+              }
+              else if (this.roleId == 3) {
+                this.mensajeAlertaMozo(this.username);
+                this.navCtrl.navigateForward('/login');
+              }
           }
-          else if (this.roleId == 1) {
-            // El administrador si nos deja iniciar sesión
-
-            await this.authService.login(this.username, this.password)
-            .then(async data => {
-              this.usuarios = data;
-              this.datosUsuarios = this.usuarios.success;
-              this.token = this.datosUsuarios.token;
-            });
-
-            this.adminLogueado(this.username);
-            this.navCtrl.navigateForward('/juegos', this.dataUsername);
-          }
-          else if (this.roleId == 2) {
-            this.mensajeAlertaContable(this.username);
-            this.navCtrl.navigateForward('/login');
-          }
-          else if (this.roleId == 3) {
-            this.mensajeAlertaMozo(this.username);
+          else {
+            this.alertUsuarioLogin(this.username);// para indicar que ya ha iniciado sesión
             this.navCtrl.navigateForward('/login');
           }
         }
@@ -156,6 +166,24 @@ export class LoginPage implements OnInit {
       ]
     });
     await cliente.present();
+  }
+
+  /** Para cuando el cliente ha iniciado sesión éxitosamente */
+  async alertUsuarioLogin(username: string) {
+    const logged = await this.alertCtrl.create({
+      header: 'Mensaje para el cliente',
+      cssClass: 'loginCss',
+      message: '<strong>'+username+' ya ha iniciado sesión.</strong>',
+      buttons: [
+        {
+          text: 'Aceptar',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (valid) => { }
+        }
+      ]
+    });
+    await logged.present();
   }
 
 

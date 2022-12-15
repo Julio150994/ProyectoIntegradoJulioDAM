@@ -25,7 +25,6 @@ export class PaypalService {
         fechaCompra+'&cliente_id='+clienteId+'&estado='+estado, {
           headers: new HttpHeaders().set('Authorization','Bearer '+token)
         }).subscribe(data => {
-            console.log(data);
             this.pedido = data;
             res(this.pedido);
         }, error => {
@@ -41,7 +40,6 @@ export class PaypalService {
         precioUnitario+'&pedido_id='+pedidoId+'&juego_id='+juegoId, {
           headers: new HttpHeaders().set('Authorization','Bearer '+token)
         }).subscribe(data => {
-            console.log(data);
             this.detallePedido = data;
             res(this.detallePedido);
         }, error => {

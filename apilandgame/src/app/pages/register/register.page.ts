@@ -52,7 +52,7 @@ export class RegisterPage implements OnInit {
           this.validationForm.email, this.validationForm.username, this.validationForm.password,
           this.validationForm.c_password)
           .then(data => {
-              console.log(data);
+              
           });
     }
     else {

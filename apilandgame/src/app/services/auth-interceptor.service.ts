@@ -23,12 +23,6 @@ export class AuthInterceptorService {
     let request = req;
 
     if (token) {
-      /*request = req.clone({
-        setHeaders: {
-          authorization: `Bearer ${ token }`
-        }
-      });*/
-
       const headers = req.clone({
         headers: req.headers.set("Authorization", `Bearer ${ token }`)
           .set('Cliente', 'landgame')

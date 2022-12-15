@@ -30,7 +30,6 @@ export class CarritoService {
 
   aniadir(juego: any) {
     this.carritoCliente.push(juego);// establecemos un juego
-    console.log(this.carritoCliente);
   }
 
   eliminar(juegoObtenido: any, nombreJuego: string) {

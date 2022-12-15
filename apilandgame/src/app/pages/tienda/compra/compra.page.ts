@@ -41,7 +41,6 @@ export class CompraPage implements OnInit {
 
   mostrarJuegosCarrito() {
     this.carritoCliente = this.carritoService.mostrar();
-    console.log(this.carritoCliente);
   }
 
   limpiarCarrito() {
