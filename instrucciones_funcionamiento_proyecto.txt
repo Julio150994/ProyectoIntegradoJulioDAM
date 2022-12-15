@@ -7,7 +7,7 @@ directorio de este proyecto
 
 3º) Poner nombre de Base de Datos en archivo .env como landgame
 
-4º) Poner estos datos en el archivo .env que hemos copiado de .env.example
+4º) Poner estos datos en el mismo archivo .env que hemos copiado de .env.example
     4.1) Cambiar los datos de email por estos:
         MAIL_MAILER=smtp
         MAIL_HOST=smtp.mailtrap.io
@@ -26,9 +26,11 @@ directorio de este proyecto
 
 5º) php artisan key:generate
 
+6º) Creamos la base de datos en phpMyAdmin como landgame
+
 6º) php artisan migrate:fresh --seed
 
-7º) php artisan serve
+8º) php artisan serve
 
 
 FUNCIONAMIENTO PARA API REST:
