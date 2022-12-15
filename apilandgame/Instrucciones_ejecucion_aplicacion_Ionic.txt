@@ -1,5 +1,5 @@
 EJECUTAR ESTOS COMANDOS:
 
-1º) npm install
+1º) npm install --force
 
 2º) ionic serve
